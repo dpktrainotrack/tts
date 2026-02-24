@@ -8752,7 +8752,7 @@ hr {
 
 @media screen and (max-width: 768px) {
     .my-text-slider {
-        background: linear-gradient(180deg, #ff7a18, #ffb347, #ffb347, #fff7eb);
+        /* background: linear-gradient(180deg, #ff7a18, #ffb347, #ffb347, #fff7eb); */
     }
 }
 
