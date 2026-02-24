@@ -406,7 +406,7 @@ input[type=color] {
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    padding: 20px 10px;
+    /* padding: 20px 10px; */
 }
 
 /* @media screen and (max-width:576px) {
@@ -2082,7 +2082,7 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-right: 6px;
-    padding: 35px 0px;
+    padding: 24px 0px;
     display: inline-block;
     position: relative;
     transition: 0.4s;

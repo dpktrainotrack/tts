@@ -386,7 +386,7 @@
 }
 
 .faq-section .accordion-button:not(.collapsed) {
-    color: #ff7a18 !important;
+    color: var(--tp-theme-1) !important;
     background-color: #ffe1cb !important;
 }
 
