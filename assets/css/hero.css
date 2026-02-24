@@ -1,0 +1,126 @@
+.wave-head {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+}
+
+.waves {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 60px;
+    max-height: 100px;
+    margin-bottom: -7px;
+}
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+
+/* @-webkit-keyframes hue {
+    0% {
+        background-position: 0 0;
+        background-size: 100%;
+    }
+    10% {
+        background-position: 10% 30%;
+        background-size: 180%;
+    }
+    20% {
+        background-position: 20% 50%;
+        background-size: 400%;
+    }
+
+    30% {
+        background-position: 50% 80%;
+        background-size: 350%;
+    }
+
+    40% {
+        background-position: 80% 20%;
+        background-size: 580%;
+    }
+   
+    50%{
+        background-position: 20% 40%;
+        background-size: 420%;
+    }
+
+    65% {
+        background-position: 100% 10%;
+        background-size: 340%;
+    }
+    
+    75% {
+        background-position: 30% 20%;
+        background-size: 270%;
+    }
+
+    85% {
+        background-position: 60% 70%;
+        background-size: 440%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+        background-size: 100%;
+    }
+} */
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+@keyframes gradient-home {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.parent {
+    position: relative;
+    background: linear-gradient(135deg, #2c1e00, #f67900, #f5ae2d, #ffd374, #f5ae2d, #f67900, #201600);
+    /* background: linear-gradient(135deg, #0038c7, #ee8f45, #0038c7, #ee8f45, #ef5454, #f80000); */
+    background-size: 400% 400%;
+    animation: gradient-home 10s ease infinite;
+    overflow: visible;
+}

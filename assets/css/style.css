@@ -789,29 +789,25 @@ input[type=color] {
 }
 
 .tp-btn-yellow-similar {
-    display: inline-block;
     font-size: 15px;
     font-weight: 500;
     color: var(--tp-common-white);
-    background: linear-gradient(90deg, #ff7a18, #ffb347);
-    /* height: 65px; */
-    /* line-height: 65px; */
-    text-align: center;
-    padding: 10px;
-    /* position: relative; */
-    z-index: 1;
-    /* overflow: hidden; */
+    background: linear-gradient(90deg, #ff7a18, #ffb347, #ff7a18);
+    background-size: 200% 100%;
+    background-position: left center;
+    padding: 12px 10px;
     border-radius: 10px;
     text-transform: uppercase;
-    transition: all 0.4 linear;
+    transition: background-position 0.5s ease;
+}
+
+
+.tp-btn-yellow-similar:hover {
+    background-position: right center;
 }
 
 .tp-btn-yellow-similar i {
     padding-left: 17px;
-}
-
-.tp-btn-yellow-similar:hover {
-    background: linear-gradient(90deg, #ff7a18, #ffb347, #ff7a18);
 }
 
 .tp-btn-yellow-similar:hover i {
@@ -8715,10 +8711,7 @@ hr {
     height: auto;
 }
 
-
 /*# sourceMappingURL=style.css.map */
-
-
 /* Add these styles to your existing CSS file or within a <style> tag in your HTML */
 
 .tabs1 ul {
@@ -8753,7 +8746,7 @@ hr {
     /* background-size: 100% 100%; */
     padding: 2rem 0px;
     font-family: century gothic;
-    background: linear-gradient(90deg, #ff7a18, #ffb347, #fff7eb);
+    /* background: linear-gradient(90deg, #ff7a18, #ffb347, #fff7eb); */
 
 }
 
