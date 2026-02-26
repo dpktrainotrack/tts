@@ -406,7 +406,7 @@ input[type=color] {
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    /* padding: 20px 10px; */
+    padding: 20px 10px;
 }
 
 /* @media screen and (max-width:576px) {
@@ -2175,16 +2175,16 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
     line-height: 0;
 }
 
-.tp-toggle-bar a {
+/* .tp-toggle-bar a {
     font-size: 20px;
     height: 50px;
     width: 50px;
-    background-color: var(--tp-theme-1);
-    color: var(--tp-common-white);
+    border: 2px solid var(--tp-theme-1);
+    color: var(--tp-theme-1);
     display: inline-block;
     text-align: center;
     line-height: 50px;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-left: 30px;
     transition: 0.3s;
 }
@@ -2192,7 +2192,85 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
 .tp-toggle-bar a:hover {
     background-color: var(--tp-theme-2);
     color: var(--tp-common-white);
+} */
+
+/* ===== */
+.tp-toggle-bar a {
+    /* Base styles */
+    font-size: 24px;
+    /* Slightly larger icon */
+    height: 52px;
+    width: 52px;
+    border: 2px solid var(--tp-theme-1);
+    background-color: transparent;
+    color: var(--tp-theme-1);
+    display: inline-flex;
+    /* Better centering */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Remove underline if it's a link */
+    border-radius: 12px;
+    /* Slightly more modern rounded corners */
+    margin-left: 30px;
+
+    /* Smooth transitions for multiple properties */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* More natural easing */
+
+    /* Better touch target for mobile */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* For ripple effect */
+
+    /* Optional: subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
+/* Hover state - more interactive */
+.tp-toggle-bar a:hover {
+    background-color: var(--tp-theme-1);
+    color: #ffffff;
+    /* Or your background color */
+    transform: translateY(-3px);
+    /* Subtle lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--tp-theme-1);
+}
+
+/* Active/click state */
+.tp-toggle-bar a:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease;
+}
+
+/* Focus state for accessibility */
+.tp-toggle-bar a:focus-visible {
+    outline: 3px solid var(--tp-theme-1);
+    outline-offset: 3px;
+}
+
+/* Optional: Add a subtle ripple effect on click */
+.tp-toggle-bar a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.tp-toggle-bar a:active::after {
+    width: 100px;
+    height: 100px;
+}
+
 
 .tp-header-right-three .search-icon {
     margin-right: 80px;
@@ -8617,7 +8695,7 @@ hr {
     box-shadow: 0px 4px 8px rgb(0 0 0 / 30%);
     /* margin: 20px; */
     border-radius: 10px;
-    /* width: 322px; */
+    width: 340px;
     z-index: 99;
 }
 
@@ -8636,6 +8714,10 @@ hr {
     list-style: none;
     color: #666;
     font-size: 15px;
+}
+
+textarea::placeholder {
+    color: #666
 }
 
 .cate-box ul li {
@@ -9096,4 +9178,12 @@ hr {
     align-items: center;
     border-top: 1px solid #0000002b;
     padding-top: 20px;
+}
+
+.popup-form-title-style {
+    font-size: 20px;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.4);
 }

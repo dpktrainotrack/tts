@@ -37,6 +37,35 @@
     box-sizing: border-box;
 }
 
+.space-medium {
+    margin-top: 40px;
+}
+
+.space-medium-bottom {
+    margin-bottom: 40px;
+}
+
+.space-small {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .space-medium {
+        margin-top: 30px;
+    }
+
+    .space-medium-bottom {
+        margin-bottom: 25px;
+    }
+
+    .space-small {
+        margin-top: 20px;
+    }
+
+}
+
+
+
 /* GRID CONTAINER */
 
 .certifications-section .cert-grid {
@@ -210,9 +239,10 @@
     align-items: center;
     justify-content: center;
     font-size: 28px;
-    color: #000;
-    background: linear-gradient(135deg, #FCB03F, #FFD27A);
-    box-shadow: 0 8px 20px rgba(252, 176, 63, 0.4);
+    color: var(--tp-theme-1);
+    /* background: linear-gradient(135deg, var(--tp-theme-1), var(--tp-theme-2)); */
+    /* box-shadow: 0 8px 20px rgba(252, 176, 63, 0.4); */
+    border: 2px solid var(--tp-theme-1);
 }
 
 /* Title */
@@ -642,6 +672,11 @@ ul.slick-dots li button {
     color: #fff;
 }
 
+.table-wrapper thead {
+    background: linear-gradient(135deg, #ff7a18, #FCAF3D);
+    color: #fff;
+}
+
 .custom-table th {
     padding: 16px;
     font-weight: 700;
@@ -935,4 +970,17 @@ ul.slick-dots li button {
     color: #666;
     font-size: 15px;
     line-height: 1.6;
+}
+
+.crt-detail-banner {
+    padding: 50px 20px;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+#staticBackdrop .modal-content {
+    border-radius: 15px;
+
 }
