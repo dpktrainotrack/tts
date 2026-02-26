@@ -125,7 +125,7 @@
     <!-- tp-header-area-end -->
 </header>
 <!-- tp-offcanvus-area-start -->
-<div class="tp-offcanvas-area d-lg-none">
+<div class="tp-offcanvas-area d-lg-none" id="header-sticky">
     <div class="tpoffcanvas" data-background="/assets/img/slider/slider-shape-3-1.png"
         style="background-color: #f0f5ff;">
         <div class="tpoffcanvas__close-btn">
@@ -144,3 +144,26 @@
     </div>
 </div>
 <div class="body-overlay"></div>
+
+<script>
+    //write the script to sticky header
+    window.addEventListener('scroll', function () {
+        var header = document.getElementById('header-sticky');
+        if (window.scrollY > 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
+
+</script>
+<style>
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+</style>
