@@ -47,11 +47,11 @@
 
     ///////////////////////////////////////////////////
     // 05. wow animation
-    var wow = new WOW({
-        mobile: true,
-    });
-    wow.init();
-    var windowOn = $(window);
+    // var wow = new WOW({
+    //     mobile: true,
+    // });
+    // wow.init();
+    // var windowOn = $(window);
 
     ///////////////////////////////////////////////////
     // 06. PreLoader Js
@@ -844,7 +844,7 @@ document.addEventListener("DOMContentLoaded", function() {
 var swiper = new Swiper(".hero-swiper", {
     loop: true,
     // loopedSlides: 2,
-    effect: "fade", 
+   effect: "fade", 
     fadeEffect: {
         crossFade: true, 
     },
@@ -863,7 +863,6 @@ var swiper = new Swiper(".hero-swiper", {
         prevEl: ".swiper-button-prev",
     },
 });
-
 var slider2 = new Swiper(".slider2", {
     loop: true,
     autoplay: {

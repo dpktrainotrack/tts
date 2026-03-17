@@ -2199,8 +2199,8 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
     /* Base styles */
     font-size: 24px;
     /* Slightly larger icon */
-    height: 52px;
-    width: 52px;
+    height: 40px;
+    width: 40px;
     border: 2px solid var(--tp-theme-1);
     background-color: transparent;
     color: var(--tp-theme-1);
@@ -2210,7 +2210,7 @@ only screen and (min-width: 1200px) and (max-width: 1399px) {
     justify-content: center;
     text-decoration: none;
     /* Remove underline if it's a link */
-    border-radius: 12px;
+    border-radius: 5px;
     /* Slightly more modern rounded corners */
     margin-left: 30px;
 

@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discounts - TrainoTrack</title>
+    <!-- Importing CSS files -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/updated.css">
+
+    <style>
+        .card-box {
+            display: none;
+            /* Hide all cards by default */
+            flex-direction: column;
+            /* Stack content vertically */
+            align-items: center;
+            /* Center content horizontally */
+            padding: 2px;
+            /* Add some padding for better appearance */
+        }
+
+
+
+        #discountSelect {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .discount-card-description {
+            font-size: 14px;
+            color: #fc6500;
+
+            font-weight: 600;
+            text-align: center;
+
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fc65004b, #ffffffc4, #ffffffc2, #fc65004b);
+            border-radius: 5px;
+            display: inline flex;
+
+            padding: 2px 10px;
+        }
+
+
+
+        .swiper-pagination-bullet {
+            height: 15px;
+            width: 15px;
+        }
+
+        #discountSwiper .swiper-pagination-bullet-active {
+            background-color: #ff7a18;
+            width: 30px;
+            height: 15px;
+            border-radius: 10px;
+        }
+
+        .discount-crt-listing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+        }
+
+        /* tablet */
+        @media (min-width: 768px) {
+            .column-left {
+                width: 100%;
+
+            }
+
+            .column-right {
+                width: 100%;
+            }
+        }
+
+        /* large screens */
+        @media (min-width: 1200px) {
+
+            .column-left {
+                width: 67%;
+                order: 1;
+                height: 755px;
+                overflow: auto;
+                overflow-y: scroll;
+                scrollbar-width: none;
+            }
+
+            .column-right {
+                width: 33%;
+                order: 2;
+                position: sticky;
+                top: 120px;
+                align-self: flex-start;
+            }
+        }
+
+        .modal-header {
+            background-color: #ff7a18;
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .dis-close-btn {
+            font-size: 20px;
+            border: 1px solid #ffffff;
+            padding: 6px;
+            border-radius: 8px;
+            width: 35px;
+        }
+
+        .disc-price-value {
+            color: #fc6500;
+            font-size: 14px;
+            font-weight: 500;
+
+        }
+
+        .actual-price-value {
+            color: #888;
+            font-size: 14px;
+            text-decoration: line-through;
+        }
+
+        .dis-logo-wrapper {
+            max-width: 140px;
+            /* padding-bottom: 15px; */
+        }
+
+        .disc-title {
+            font-size: 14px;
+            color: #363636;
+
+            text-align: center;
+            margin-bottom: 0;
+
+        }
+
+        .discount-section {
+            background: linear-gradient(135deg, #fffaf5 0%, #fff9f0 100%);
+            border: 2px solid #fee8d7;
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .discount-label {
+            font-size: 13px;
+            color: #ff7a18;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .discount-value {
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fcaf3d 0%, #fa4f00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .discount-text {
+            font-size: 16px;
+            color: #2d3748;
+            margin-top: 4px;
+        }
+
+        .cta-button {
+            font-size: 13px;
+            font-weight: 500;
+            color: #fff;
+            background: linear-gradient(90deg, #ff7a18, #ffb347, #ff7a18);
+            background-size: 200% 100%;
+            background-position: left center;
+            padding: 6px 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-position 0.5s ease;
+            margin-top: 16px;
+        }
+
+        .cart-title-wrapper {
+            padding-top: 15px;
+        }
+
+        main {
+            background-color: #f0f0f0;
+        }
+
+        .card-item {
+            transition: transform 0.3s ease;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 3px rgba(133, 133, 133, 0.3);
+
+        }
+
+        .card-item-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cta-button:hover {
+            background-position: right center;
+        }
+
+        .card-item:hover {
+            transform: translateY(-5px);
+
+        }
+
+        /* Hide scrollbar for Chrome, Edge, Safari */
+        .scroll-box::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for Firefox */
+        .scroll-box {
+            scrollbar-width: none;
+        }
+
+        /* Hide scrollbar for IE and Edge */
+        .scroll-box {
+            -ms-overflow-style: none;
+        }
+
+
+        /* =======experience difference section css======= */
+
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff7a18, #ffa502);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: #7f8c8d;
+            font-size: 1rem;
+            /* margin-top: 20px; */
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            padding-top: 30px;
+
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+            cursor: pointer;
+            border-bottom: 5px solid transparent;
+
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .feature-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        /* 
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff7a18, #ffa502);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        } */
+
+        .feature-card:hover {
+            border-bottom: 5px solid #ff7a18;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(255, 122, 24, 0.2);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #ff7a18 0%, #ffa502 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(255, 122, 24, 0.3);
+        }
+
+        .feature-card:hover .icon-wrapper {
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 122, 24, 0.4);
+        }
+
+        .icon-wrapper i {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* .feature-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 122, 24, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        } */
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #ff7a18;
+            font-weight: 600;
+            border: 2px solid rgba(255, 122, 24, 0.2);
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #ff7a18;
+            opacity: 0;
+            animation: pulse 2s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            top: 40%;
+            left: 0%;
+            width: 80px;
+            height: 80px;
+            background: #ff7a18;
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: -4%;
+            right: 10%;
+            width: 120px;
+            height: 120px;
+            background: #ffa502;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 18%;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: #ff7a18;
+            transform: rotate(45deg);
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+
+            66% {
+                transform: translateY(30px) rotate(240deg);
+            }
+        }
+
+        .counter-effect {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff7a18;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Loading animation */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff7a18, #ffa502);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        .loading-bar.complete {
+            width: 100%;
+        }
+
+        .experience-difference {
+            background: linear-gradient(to bottom, #ffffff, #f2edd4);
+            position: relative;
+        }
+
+        /* ======google-review-section css=======  */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff7a18, #ffa502);
+            border-radius: 2px;
+        }
+
+        .tagline {
+            color: #ff7a18;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .tagline i {
+            animation: starPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes starPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Main Reviews Grid */
+        .reviews-wrapper {
+            /* display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            align-items: start; */
+        }
+
+        /* Google Rating Box */
+        .google-rating-box {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(255, 122, 24, 0.15);
+            text-align: center;
+            position: sticky;
+            top: 20px;
+            border: 2px solid rgba(255, 122, 24, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .google-rating-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 122, 24, 0.2);
+        }
+
+        .google-logo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .google-logo span:nth-child(1) {
+            color: #4285F4;
+        }
+
+        .google-logo span:nth-child(2) {
+            color: #EA4335;
+        }
+
+        .google-logo span:nth-child(3) {
+            color: #FBBC05;
+        }
+
+        .google-logo span:nth-child(4) {
+            color: #4285F4;
+        }
+
+        .google-logo span:nth-child(5) {
+            color: #34A853;
+        }
+
+        .google-logo span:nth-child(6) {
+            color: #EA4335;
+        }
+
+        .rating-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #2d3436;
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .stars {
+            color: #ff7a18;
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .total-reviews {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff7a18 0%, #ffa502 100%);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 12;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 122, 24, 0.3);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 122, 24, 0.4);
+        }
+
+        .cta-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Reviews Cards Container */
+        .reviews-container {
+            /* display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 3fr)); */
+            /* gap: 25px; */
+        }
+
+        /* Individual Review Card */
+        .review-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-bottom: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
+            z-index: 1;
+        }
+
+        .review-card::before {
+            content: "\f10e";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            top: -20px;
+            right: 15px;
+            font-size: 8rem;
+            color: rgba(255, 122, 24, 0.04);
+            z-index: -1;
+            transition: all 0.5s ease;
+            transform: rotate(-10deg);
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 122, 24, 0.15);
+            border-bottom: 4px solid #ff7a18;
+        }
+
+        .review-card:hover::before {
+            transform: rotate(0deg) scale(1.1);
+            color: rgba(255, 122, 24, 0.08);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: white;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .avatar-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .avatar-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .avatar-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #00b894;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            border: 2px solid white;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.1rem;
+            color: #2d3436;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+
+        .reviewer-info .time {
+            color: #b2bec3;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .reviewer-info .time i {
+            color: #ff7a18;
+            font-size: 0.75rem;
+        }
+
+        .review-stars {
+            color: #ffb347;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .review-stars i {
+            text-shadow: 0 2px 5px rgba(255, 179, 71, 0.3);
+        }
+
+        .review-text {
+            color: #636e72;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-style: italic;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .helpful-btn {
+            margin-top: 20px;
+            background: rgba(255, 122, 24, 0.08);
+            color: #ff7a18;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            opacity: 0.8;
+            align-self: flex-start;
+        }
+
+        .helpful-btn:hover {
+            background: #ff7a18;
+            color: white;
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 122, 24, 0.2);
+        }
+
+        /* Quote Icon */
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(255, 122, 24, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .reviews-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .google-rating-box {
+                position: static;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-number {
+                font-size: 3rem;
+            }
+        }
+
+        /* Loading Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Trust Indicators */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        .trust-item i {
+            color: #ff7a18;
+            font-size: 1.2rem;
+        }
+
+
+        .card-text {
+            font-size: 14px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .swiper-pagination-review {
+            position: relative;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #googleReviewSlider .swiper-pagination-bullet {
+            background-color: #d1d8e0;
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        #googleReviewSlider .swiper-pagination-bullet-active {
+            background-color: #ff7a18;
+            width: 25px;
+            border-radius: 10px;
+        }
+
+        /* ======= Affordable Certification Banner ======= */
+        .certification-banner {
+            background: linear-gradient(90deg, #e9791ef8, #ff8c00, #e9911e);
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            color: #fff;
+        }
+
+        .certification-banner h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .certification-banner p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .certification-banner .contact-btn {
+            background-color: #ffffff;
+            color: #2b5cff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .certification-banner .contact-btn i {
+            font-size: 1.4rem;
+            color: #25D366;
+            /* WhatsApp Green */
+        }
+
+        .certification-banner .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            color: #1a42cc;
+        }
+
+        .certification-banner-img {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @media (max-width: 991px) {
+            .certification-banner {
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .certification-banner h2 {
+                font-size: 2.2rem;
+            }
+
+            .certification-banner-img {
+                margin-top: 40px;
+                max-width: 80%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+
+    <main>
+        <section class="banner">
+            <div class="swiper " id="discountSwiper">
+                <div class="swiper-wrapper">
+                    <!-- <div class="swiper-slide">
+                        <div class="image-container">
+                            <img src="/assets/img/hero/hero-banner2.jpeg" alt="" class="w-100 h-auto">
+                        </div>
+                    </div> -->
+                    <!-- <div class="swiper-slide">
+                        <div class="image-container">
+                            <img src="/assets/img/hero/heor-banner2.jpeg" alt="" class="w-100 h-auto">
+                        </div>
+                    </div> -->
+                    <div class="swiper-slide">
+                        <div class="image-container">
+                            <img src="/assets/img/hero/hero-banner1.jpeg" alt="" class="w-100 h-auto">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <section class="disc-crt-section inner-space-top">
+            <div class="container">
+                <div class="row flex-column-reverse flex-xl-row">
+                    <div class="column-left">
+                        <div class="discount-crt-listing">
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/aws.png" alt="aws certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">AWS Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button" data-bs-toggle="modal" data-bs-target="#discountModal">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/checkPoint.png"
+                                                alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">Checkpoint Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/cisco.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">CISCO Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/comptia.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">CompTIA Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button" data-bs-toggle="modal" data-bs-target="#discountModal">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/fortinet.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">FORTINET Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/iiba.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">IIBA Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/isaca.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">ISACA Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/juniper.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">JUNIPER Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/microsoft.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">Microsoft Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/paloalto.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">Paloalto Networks Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/pega.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">Pega Exam Voucher</h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/PMI.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">
+                                            PMI Exam Voucher
+                                        </h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/pi.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">
+                                            Python Institute Exam Voucher
+                                        </h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/salesforce.png"
+                                                alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">
+                                            Salesforce Exam Voucher
+                                        </h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/sa.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">
+                                            SCRUM ALLIANCE Exam Voucher
+                                        </h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-item ">
+                                <div class="card-item-inner">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="dis-logo-wrapper">
+                                            <img src="assets/img/discount-page/linux.png" alt="isaca certification">
+                                        </div>
+                                    </div>
+                                    <div class="cart-title-wrapper">
+                                        <h4 class="disc-title">
+                                            The Linux Foundation Exam Voucher
+                                        </h4>
+                                    </div>
+                                    <div class="discount-section">
+                                        <div class="discount-value">20% OFF</div>
+                                    </div>
+                                    <button class="cta-button">
+                                        View Details →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class=" column-right d-flex justify-content-end">
+                        <div class="inquery-form-wrapper mb-5 mb-xl-0 w-100">
+                            <style>
+                                .modern-form-card {
+                                    background: white;
+                                    border-radius: 20px;
+                                    padding: 35px 30px;
+                                    box-shadow: 0 10px 40px rgba(255, 122, 24, 0.12);
+                                    border: 2px solid rgba(255, 122, 24, 0.08);
+                                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .modern-form-card:hover {
+                                    transform: translateY(-5px);
+                                    box-shadow: 0 20px 50px rgba(255, 122, 24, 0.2);
+                                }
+
+                                .modern-form-header {
+                                    font-size: 1.8rem;
+                                    color: #2d3436;
+                                    margin-bottom: 30px;
+                                    font-weight: 700;
+                                    position: relative;
+                                    display: inline-block;
+                                    width: 100%;
+                                    text-align: center;
+                                }
+
+                                .modern-form-header::after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -10px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 60px;
+                                    height: 4px;
+                                    background: linear-gradient(90deg, #ff7a18, #ffa502);
+                                    border-radius: 2px;
+                                }
+
+                                .modern-input {
+                                    border-radius: 12px;
+                                    border: 2px solid #edf2f7;
+                                    padding: 12px 20px;
+                                    font-size: 0.95rem;
+                                    width: 100%;
+                                    background-color: #f8fafc;
+                                    transition: all 0.3s ease;
+                                    color: #2d3436;
+                                }
+
+                                .modern-input:focus {
+                                    outline: none;
+                                    border-color: #ff7a18;
+                                    background-color: #ffffff;
+                                    box-shadow: 0 0 0 4px rgba(255, 122, 24, 0.1);
+                                }
+
+                                .modern-input::placeholder {
+                                    color: #a0aec0;
+                                    font-weight: 500;
+                                }
+
+                                .modern-submit-btn {
+                                    background: linear-gradient(135deg, #ff7a18 0%, #ffa502 100%);
+                                    color: white;
+                                    border: none;
+                                    padding: 14px 20px;
+                                    border-radius: 50px;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                    display: inline-flex;
+                                    align-items: center;
+                                    width: 100%;
+                                    justify-content: center;
+                                    gap: 10px;
+                                    transition: all 0.3s ease;
+                                    box-shadow: 0 8px 20px rgba(255, 122, 24, 0.3);
+                                    margin-top: 10px;
+                                    text-transform: uppercase;
+                                    letter-spacing: 1px;
+                                }
+
+                                .modern-submit-btn:hover {
+                                    transform: translateY(-3px);
+                                    box-shadow: 0 12px 30px rgba(255, 122, 24, 0.4);
+                                }
+
+                                .modern-submit-btn i {
+                                    transition: transform 0.3s ease;
+                                }
+
+                                .modern-submit-btn:hover i {
+                                    transform: translateX(5px);
+                                }
+
+                                .modern-form-group {
+                                    margin-bottom: 20px;
+                                    position: relative;
+                                }
+
+                                .modern-form-group i.icon {
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    right: 20px;
+                                    color: #a0aec0;
+                                    transition: color 0.3s ease;
+                                    pointer-events: none;
+                                }
+
+                                .modern-input:focus+i.icon {
+                                    color: #ff7a18;
+                                }
+
+                                textarea.modern-input {
+                                    resize: none;
+                                }
+
+                                textarea.modern-input+i.icon {
+                                    top: 24px;
+                                    transform: none;
+                                }
+
+                                select.modern-input {
+                                    appearance: none;
+                                    -webkit-appearance: none;
+                                    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0aec0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                                    background-repeat: no-repeat;
+                                    background-position: right 15px center;
+                                    background-size: 15px;
+                                    padding-right: 40px;
+                                }
+
+                                select.modern-input:focus {
+                                    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a18' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                                }
+                            </style>
+                            <div class=" w-100 ">
+                                <div class="modern-form-card" id="sticky">
+
+                                    <h3 class="modern-form-header">Enquire Now</h3>
+
+                                    <div class="form-box mt-4">
+                                        <div id="contact111">
+
+                                            <form method="post" class="enquiry-form" action="/certifications/isaca">
+
+                                                <!-- Hidden Fields -->
+                                                <input type="hidden" name="CategoryIdForRedirect">
+                                                <input type="hidden" name="EnquirePurpose"
+                                                    value="ISACA Certifications Exam Voucher">
+                                                <input type="hidden" name="PageURL"
+                                                    value="https://www.trainotracksolutions.com/certifications/isaca">
+                                                <input type="hidden" name="UtmSource" value="">
+                                                <input type="hidden" name="UtmMedium" value="">
+                                                <input type="hidden" name="UtmCampaign" value="">
+
+                                                <!-- Name -->
+                                                <div class="modern-form-group">
+                                                    <input class="modern-input" id="Name" name="Name" type="text"
+                                                        placeholder="Full Name" required>
+                                                    <i class="fas fa-user icon"></i>
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="modern-form-group">
+                                                    <input class="modern-input" id="Email" name="Email" type="email"
+                                                        placeholder="Email Address" required>
+                                                    <i class="fas fa-envelope icon"></i>
+                                                    <span id="errorEmailId111"
+                                                        style="color:#e53e3e; font-size: 0.85rem; margin-top: 5px; display: block;"></span>
+                                                </div>
+
+                                                <!-- Phone -->
+                                                <div class="modern-form-group">
+                                                    <input class="modern-input" id="PhoneNumber" name="PhoneNumber"
+                                                        type="tel" placeholder="Phone Number" pattern="[0-9]{7,15}"
+                                                        maxlength="15" required>
+                                                    <i class="fas fa-phone-alt icon"></i>
+                                                </div>
+
+                                                <!-- Country -->
+                                                <div class="modern-form-group">
+                                                    <select class="modern-input" name="Country" id="Country" required>
+                                                        <option value="">Select Country</option>
+                                                        <option value="India" selected>India</option>
+                                                        <option value="United States">United States</option>
+                                                        <option value="United Kingdom">United Kingdom</option>
+                                                        <option value="Australia">Australia</option>
+                                                        <!-- keep your full country list -->
+                                                    </select>
+                                                </div>
+
+                                                <!-- Message -->
+                                                <div class="modern-form-group">
+                                                    <textarea class="modern-input" id="Message" name="Message"
+                                                        placeholder="Your Message" rows="3"></textarea>
+                                                    <i class="fas fa-comment-dots icon"></i>
+                                                </div>
+
+                                                <!-- Submit -->
+                                                <div class="bt-center">
+                                                    <button type="submit" class="modern-submit-btn submit-btn">
+                                                        <span>Submit Details</span>
+                                                        <i class="fas fa-paper-plane"></i>
+                                                    </button>
+
+                                                    <div class="modern-submit-btn loading-btn"
+                                                        style="display:none; cursor: not-allowed; opacity: 0.8;">
+                                                        <i class="fas fa-spinner fa-spin"></i>
+                                                        <span>Processing...</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Success -->
+                                                <div id="SuccessMessage1"
+                                                    style="display:none; color: #047857; text-align: center; margin-top: 15px; background: #d1fae5; padding: 12px; border-radius: 8px; font-weight: 500; border: 1px solid #a7f3d0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                                                    <i class="fas fa-check-circle mr-2"></i> Thank you! Your enquiry has
+                                                    been submitted.
+                                                </div>
+
+                                                <!-- Token -->
+                                                <input name="__RequestVerificationToken" type="hidden"
+                                                    value="CfDJ8DHhN3Impy5HjV7WRdhdGDpoi9rmvCkdqXGygBVWjgLUhHW0KIf2AzbqSZuaoURThW2iQA4KwBOpztL_F3m5tYC9d29iEA_-HlBGarraFu2AbKxu_LvuTQ6C3eIOsvZllMc9j--dHKcND_pTE-PSJGw">
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-box-wrapper">
+                <!-- Modal -->
+                <div class="modal fade" id="discountModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title">Select Item</h5>
+                                <button class=" text-white dis-close-btn" data-bs-dismiss="modal"><i class="fa fa-times"
+                                        aria-hidden="true"></i></button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <!-- Select Dropdown -->
+                                <select id="discountSelect" class=" mb-3 d-block" onchange="showCard(this.value)">
+                                    <option value="">-- Select an Item --</option>
+                                    <option value="card1">Item 1</option>
+                                    <option value="card2">Item 2</option>
+                                    <option value="card3">Item 3</option>
+                                </select>
+
+                                <!-- Cards -->
+
+                                <div id="card1" class="card card-box">
+                                    <div class="card-body">
+                                        <h5>CompTIA Exam Voucher</h5>
+                                        <ul>
+                                            <li>
+                                                CompTIA A+
+                                            </li>
+                                        </ul>
+                                        <p>Each voucher applies to a single exam attempt only</p>
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="actual-price-value">Actual Price: 265 USD</div>
+                                            <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="card2" class="card card-box">
+                                    <div class="card-body">
+                                        <h5>CompTIA Exam Voucher 2</h5>
+                                        <ul>
+                                            <li>
+                                                CompTIA A+
+                                            </li>
+                                        </ul>
+                                        <p>Each voucher applies to a single exam attempt only</p>
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="actual-price-value">Actual Price: 265 USD</div>
+                                            <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="card3" class="card card-box">
+                                    <div class="card-body">
+                                        <h5>CompTIA Exam Voucher 3</h5>
+                                        <ul>
+                                            <li>
+                                                CompTIA A+
+                                            </li>
+                                        </ul>
+                                        <p>Each voucher applies to a single exam attempt only</p>
+                                        <div class="d-flex justify-content-between ">
+                                            <div class="actual-price-value">Actual Price: 265 USD</div>
+                                            <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class=" space-top inner-space-top inner-space-bottom experience-difference">
+            <div class="">
+                <div class="loading-bar" id="loadingBar"></div>
+
+                <div class="floating-shapes">
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                </div>
+
+                <div class="container">
+                    <div class="section-header">
+                        <h3 class=" tp-section-title mb-4 fancy-title">Experience The <span>Difference</span> </h3>
+                        <p>Discover why thousands of professionals trust us for their certification journey</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>100% Authentic</h3>
+                            <p>As an authorized reseller, we provide authentic exam vouchers globally—guaranteeing a
+                                safe, secure, and reliable certification experience.</p>
+
+                        </div>
+
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Huge Savings</h3>
+                            <p>Cut down your exam costs with exclusive discounted vouchers for leading providers like
+                                AWS, Oracle, and Microsoft.</p>
+                            <!-- <div class="stats-badge">
+                                <i class="fas fa-percentage"></i>
+                                <span>Up to 40% Off</span>
+                            </div> -->
+                        </div>
+
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Instant Delivery</h3>
+                            <p>Get your valid exam voucher code delivered to your inbox within minutes—so you can book
+                                your exam right away.</p>
+                        </div>
+
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>24/7 Support</h3>
+                            <p>Get complete assistance from our expert team, from buying your voucher to scheduling your
+                                exam—making the entire process simple and stress-free.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Affordable Certification Deals Banner -->
+        <section class="certification-banner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h2>Smart Savings on Professional Certifications</h2>
+                        <p>Boost your career with genuine, discounted exam vouchers for top IT certifications like AWS
+                            and Oracle—empowering you to succeed without overspending.</p>
+                        <a href="https://wa.me/yourwhatsappnumber" class="contact-btn">
+                            <i class="fab fa-whatsapp"></i> Contact Us
+                        </a>
+                    </div>
+                    <div class="col-lg-5 text-center text-lg-end">
+                        <img src="assets/img/discount-page/cert1.png" alt="Global Community"
+                            class="certification-banner-img" style="border-radius: 60px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="space-top space-bottom testimonial-">
+            <div class="container">
+                <!-- Section Header -->
+
+                <div class="section-header">
+
+                    <h3 class=" tp-section-title mb-4 fancy-title">Student <span>Feedback</span> </h3>
+
+                    <div class=" section-header">
+
+                        <p>Got the Voucher at discounted Price</p>
+                    </div>
+                </div>
+
+                <!-- Reviews Wrapper -->
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <!-- Google Rating Box -->
+                        <div class="google-rating-box floating">
+                            <div class="google-logo">
+                                <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+                            </div>
+                            <h3>Reviews</h3>
+                            <div class="rating-number">4.8</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="total-reviews">Based on 240 reviews</div>
+                            <button class="cta-button">
+                                <span>Review Us On Google</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-12">
+                        <!-- Reviews Cards -->
+                        <div class="reviews-container swiper  pb-4" id="googleReviewSlider">
+                            <div class="swiper-wrapper">
+                                <!-- Review 1 -->
+                                <div class="swiper-slide ">
+                                    <div class="review-card ">
+                                        <div class="review-header">
+                                            <div class="avatar avatar-1">
+                                                RS
+                                                <div class="verified-badge">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                            </div>
+                                            <div class="reviewer-info">
+                                                <h4>Rohan Sharma</h4>
+                                                <div class="time">
+                                                    <i class="fas fa-clock"></i>
+                                                    1 year ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+
+
+                                        </div>
+                                        <p class="review-text card-text" id="cardText">
+                                            Great experience with Global IT Success! The voucher purchase process was
+                                            quick, easy, and much more affordable than the official pricing
+                                            <span class="read-btn" onclick="toggleText()">Read More</span>
+                                        </p>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Helpful
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Review 2 -->
+                                <div class="swiper-slide ">
+                                    <div class="review-card ">
+
+                                        <div class="review-header">
+                                            <div class="avatar avatar-2">
+                                                GL
+                                                <div class="verified-badge">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                            </div>
+                                            <div class="reviewer-info">
+                                                <h4>Giridhar Low Grade</h4>
+                                                <div class="time">
+                                                    <i class="fas fa-clock"></i>
+                                                    4 months ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="review-text">
+                                            Very satisfied with the service! The team made the process simple, and I
+                                            saved a good amount compared to buying directly from the official site.
+                                        </p>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Helpful
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Review 3 -->
+                                <div class="swiper-slide ">
+                                    <div class="review-card ">
+
+                                        <div class="review-header">
+                                            <div class="avatar avatar-3">
+                                                GB
+                                                <div class="verified-badge">
+                                                    <i class="fas fa-check"></i>
+                                                </div>
+                                            </div>
+                                            <div class="reviewer-info">
+                                                <h4>Gaurav Singh Bisht</h4>
+                                                <div class="time">
+                                                    <i class="fas fa-clock"></i>
+                                                    a week ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p class="review-text">
+                                            "I recently bought vouchers from Global IT success it was a very smooth
+                                            process
+                                            and
+                                            the
+                                            price was very reasonable from official site."
+                                        </p>
+                                        <button class="helpful-btn">
+                                            <i class="fas fa-thumbs-up"></i>
+                                            Helpful
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination swiper-pagination-review"></div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <!-- <div class="trust-badges">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Verified Reviews</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure Process</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-award"></i>
+                            <span>Trusted by 5000+ Students</span>
+                        </div>
+                    </div> -->
+                </div>
+        </section>
+        <section class="tp-why-choose-area inner-space-bottom    faq-section" style="background: var(--tp-grey-1);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 text-center">
+                        <h3 class="tp-section-title mb-4 fancy-title">Frequently Asked <span>Questions</span> </h3>
+                    </div>
+                </div>
+
+                <!-- FAQ Content -->
+                <div class="row align-items-center g-4">
+                    <!-- Image -->
+                    <!-- <div class="col-lg-5 text-center">
+                        <img src="/assets/img/it-logo-webp/tot_faq.webp" class="img-fluid" alt="FAQ Image">
+                    </div> -->
+
+                    <!-- Accordion -->
+                    <div class="col-12">
+                        <div class="accordion" id="faqAccordion">
+
+                            <!-- Item 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Can I retake the exam?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, but the retake rules depend on the specific certification provider. Each
+                                        exam body (like Microsoft, CompTIA, AWS) has its retake policy.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Do all exams have different booking conditions?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Exactly. Booking rules, scheduling options, and validity vary with each
+                                        certification provider, so it’s important to check the conditions before
+                                        purchasing.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        Are these vouchers accepted for study and migration abroad?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, our English exam vouchers are valid for purposes like university admission,
+                                        job applications, and immigration processes.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        Can I change my exam date after booking?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Most exam boards allow rescheduling, but policies differ between tests like PTE,
+                                        TOEFL, and SELT. Always review their guidelines before making changes.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                        Do I really need training before using a voucher?
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        While not mandatory, training enhances your chances of success by preparing you
+                                        with the right strategies and practice.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingsix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                                        Is training flexible for working professionals?
+                                    </button>
+                                </h2>
+                                <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, we provide online and weekend-friendly options so you can prepare at your
+                                        own pace without disturbing your job or studies.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <div id="footer"></div>
+    <!-- JS here -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/swiper-bundle.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function showCard(value) {
+            let cards = document.querySelectorAll('.card-box');
+            cards.forEach(card => {
+                card.style.display = "none";
+            });
+            if (value) {
+                document.getElementById(value).style.display = "block";
+            }
+        }
+
+
+        const discountModal = document.getElementById('discountModal');
+        discountModal.addEventListener('shown.bs.modal', function () {
+            const select = document.getElementById("discountSelect");
+            if (select.options.length > 1) {
+                // select first item automatically
+                select.selectedIndex = 1;
+                // trigger card display
+                showCard(select.value);
+            }
+        });
+
+
+
+
+        var swiper = new Swiper("#discountSwiper", {
+            loop: true,
+            loopedSlides: 2,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true,
+            },
+            speed: 900,
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            //     pauseOnMouseEnter: true
+            // },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        var swiper = new Swiper("#googleReviewSlider",
+            {
+                loop: true,
+                loopedSlides: 2,
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true,
+                },
+                speed: 2500,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        // =====Difference Section JS=======
+        window.addEventListener('load', () => {
+            const loadingBar = document.getElementById('loadingBar');
+            setTimeout(() => {
+                loadingBar.classList.add('complete');
+                setTimeout(() => {
+                    loadingBar.style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach((card) => {
+            observer.observe(card);
+        });
+
+        // 3D Tilt Effect
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + (element.dataset.suffix || '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + (element.dataset.suffix || '');
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when cards are visible
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const badge = entry.target.querySelector('.stats-badge span');
+                    if (badge && badge.textContent.includes('40%')) {
+                        animateCounter(badge, 40, 1500);
+                        badge.textContent = '40% Off';
+                    }
+                    if (badge && badge.textContent.includes('5000+')) {
+                        badge.textContent = '5000+ Happy Clients';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            counterObserver.observe(card);
+        });
+
+        // Add ripple effect on click
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 122, 24, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation to stylesheet
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for floating shapes
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 20;
+                const xOffset = (0.5 - x) * speed;
+                const yOffset = (0.5 - y) * speed;
+                shape.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${index * 45}deg)`;
+            });
+        });
+
+        // Smooth scroll reveal
+        const scrollReveal = () => {
+            const cards = document.querySelectorAll('.feature-card');
+            const windowHeight = window.innerHeight;
+
+            cards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
+
+    </script>
+</body>
+
+</html>
