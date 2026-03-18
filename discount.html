@@ -125,14 +125,16 @@
         .disc-price-value {
             color: #fc6500;
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
+
 
         }
 
         .actual-price-value {
             color: #888;
             font-size: 14px;
-            text-decoration: line-through;
+            /* text-decoration: line-through; */
+            font-weight: 600;
         }
 
         .dis-logo-wrapper {
@@ -753,7 +755,7 @@
         }
 
         .review-card:hover {
-            transform: translateY(-10px);
+            /* transform: translateY(-10px); */
             box-shadow: 0 20px 40px rgba(255, 122, 24, 0.15);
             border-bottom: 4px solid #ff7a18;
         }
@@ -1075,6 +1077,61 @@
                 margin-top: 40px;
                 max-width: 80%;
             }
+        }
+
+        .modal-body {
+            max-height: 550px;
+            overflow-y: auto;
+            background-color: #f3f3f3;
+        }
+
+        .card-body h5 {
+            font-size: 16px;
+            color: #ff7a18;
+        }
+
+        .card-body>p {
+            color: rgb(160, 160, 160);
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ffda08fa, #ff7a18);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            /* vertical */
+            height: 8px;
+            /* horizontal */
+        }
+
+        .modal-card-whatsapp-btn {
+            border-radius: 100px;
+            background-color: #00b894;
+            color: #ffffff;
+            padding: 2px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-card-whatsapp-btn i {
+            font-size: 26px;
+        }
+
+        .modal-box-coll-btn {
+            border-radius: 100px;
+            background: linear-gradient(135deg, #ff7a18 0%, #ffa502 100%);
+            color: #ffffff;
+            padding: 2px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 
@@ -1666,73 +1723,231 @@
             <div class="modal-box-wrapper">
                 <!-- Modal -->
                 <div class="modal fade" id="discountModal" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-dialog modal-dialog-centered modal-lg ">
                         <div class="modal-content">
 
                             <div class="modal-header">
                                 <h5 class="modal-title">Select Item</h5>
-                                <button class=" text-white dis-close-btn" data-bs-dismiss="modal"><i class="fa fa-times"
-                                        aria-hidden="true"></i></button>
+                                <button class=" text-white dis-close-btn d-grid" data-bs-dismiss="modal"><i
+                                        class="fa fa-times" aria-hidden="true"></i></button>
                             </div>
 
-                            <div class="modal-body">
+                            <div class="modal-body relative">
 
                                 <!-- Select Dropdown -->
                                 <select id="discountSelect" class=" mb-3 d-block" onchange="showCard(this.value)">
                                     <option value="">-- Select an Item --</option>
-                                    <option value="card1">Item 1</option>
-                                    <option value="card2">Item 2</option>
-                                    <option value="card3">Item 3</option>
+                                    <option value="item1">Item 1</option>
+                                    <option value="item2">Item 2</option>
+                                    <option value="item3">Item 3</option>
                                 </select>
 
-                                <!-- Cards -->
+                                <div id="item1" class="card-box modal-cards-wrapper">
+                                    <style>
+                                        /* Premium Modal Cards CSS (No HTML Structural Changes) */
+                                        .modal-cards-wrapper .card {
+                                            border: none;
+                                            border-radius: 16px;
+                                            background: #ffffff;
+                                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                                            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                                            /* border: 1px solid rgb(219, 219, 219); */
+                                            border-bottom: 5px solid #ff7a18;
+                                            margin-bottom: 20px !important;
+                                            overflow: hidden;
+                                            position: relative;
 
-                                <div id="card1" class="card card-box">
-                                    <div class="card-body">
-                                        <h5>CompTIA Exam Voucher</h5>
-                                        <ul>
-                                            <li>
-                                                CompTIA A+
-                                            </li>
-                                        </ul>
-                                        <p>Each voucher applies to a single exam attempt only</p>
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="actual-price-value">Actual Price: 265 USD</div>
-                                            <div class="disc-price-value">Discounted Price: 212 USD</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="card2" class="card card-box">
-                                    <div class="card-body">
-                                        <h5>CompTIA Exam Voucher 2</h5>
-                                        <ul>
-                                            <li>
-                                                CompTIA A+
-                                            </li>
-                                        </ul>
-                                        <p>Each voucher applies to a single exam attempt only</p>
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="actual-price-value">Actual Price: 265 USD</div>
-                                            <div class="disc-price-value">Discounted Price: 212 USD</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="card3" class="card card-box">
-                                    <div class="card-body">
-                                        <h5>CompTIA Exam Voucher 3</h5>
-                                        <ul>
-                                            <li>
-                                                CompTIA A+
-                                            </li>
-                                        </ul>
-                                        <p>Each voucher applies to a single exam attempt only</p>
-                                        <div class="d-flex justify-content-between ">
-                                            <div class="actual-price-value">Actual Price: 265 USD</div>
-                                            <div class="disc-price-value">Discounted Price: 212 USD</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                        }
 
+                                        .modal-cards-wrapper .card::after {
+                                            content: '';
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                            width: 150px;
+                                            height: 150px;
+                                            background: linear-gradient(135deg, rgba(255, 122, 24, 0.05) 0%, rgba(255, 165, 2, 0) 100%);
+                                            border-radius: 0 0 0 100%;
+                                            pointer-events: none;
+                                        }
+
+                                        .modal-cards-wrapper .card:hover {
+                                            /* transform: translateY(-5px); */
+                                            box-shadow: 0 12px 30px rgba(255, 122, 24, 0.15);
+                                            /* border: 1px solid #ffa502; */
+
+                                            border-bottom: 5px solid #ffa502;
+
+                                        }
+
+                                        .modal-cards-wrapper .card-body {
+                                            padding: 25px;
+                                        }
+
+                                        .modal-cards-wrapper .card h5 {
+                                            font-size: 1.3rem;
+                                            font-weight: 700;
+                                            color: #1e293b;
+                                            margin-bottom: 15px;
+                                            letter-spacing: -0.5px;
+                                        }
+
+                                        .modal-cards-wrapper .card ul {
+                                            list-style: none;
+                                            padding: 0;
+                                            margin: 0 0 15px 0;
+                                        }
+
+                                        .modal-cards-wrapper .card ul li {
+                                            font-size: 1.05rem;
+                                            color: #334155;
+                                            font-weight: 600;
+                                            position: relative;
+
+                                        }
+
+                                        /* .modal-cards-wrapper .card ul li::before {
+                                            content: '\f058';
+                                            font-family: 'Font Awesome 5 Free', 'Font Awesome 6 Free';
+                                            font-weight: 900;
+                                            position: absolute;
+                                            left: 0;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            color: #10b981;
+                                            font-size: 1.1rem;
+                                        } */
+
+                                        .modal-cards-wrapper .card p {
+                                            font-size: 0.9rem;
+                                            color: #64748b;
+                                            background: #f8fafc;
+                                            padding: 10px 15px;
+                                            border-radius: 8px;
+                                            margin-bottom: 20px;
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 10px;
+                                            border: 1px solid #e2e8f0;
+                                        }
+
+                                        /* .modal-cards-wrapper .card p::before {
+                                            content: '\f05a'; 
+                                            font-family: 'Font Awesome 5 Free', 'Font Awesome 6 Free';
+                                            font-weight: 900;
+                                            color: #94a3b8;
+                                            font-size: 1rem;
+                                        } */
+
+                                        .modal-cards-wrapper .card .d-flex.justify-content-between {
+                                            align-items: center;
+                                            background: #f8fafc;
+                                            border-radius: 12px;
+                                            padding: 15px 20px;
+                                            border: 1px dashed #cbd5e1;
+                                        }
+
+                                        .modal-cards-wrapper .card .actual-price-value {
+                                            font-size: 1rem;
+                                            color: #94a3b8;
+                                            text-decoration: line-through;
+                                            font-weight: 500;
+                                        }
+
+                                        .modal-cards-wrapper .card .disc-price-value {
+                                            font-size: 16px;
+                                            color: #ea580c;
+                                            font-weight: 800;
+                                            background: #fff7ed;
+                                            padding: 6px 14px;
+                                            border-radius: 8px;
+                                            border: 1px solid #fed7aa;
+                                            box-shadow: 0 2px 4px rgba(234, 88, 12, 0.05);
+                                        }
+                                    </style>
+                                    <!-- modals Cards -->
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5>CompTIA Exam Voucher</h5>
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-check-circle"></i> CompTIA A+
+                                                </li>
+                                            </ul>
+                                            <p><i class="fa fa-info-circle"></i> Each voucher applies to a single exam
+                                                attempt only</p>
+                                            <div class="d-flex justify-content-between ">
+                                                <div class="actual-price-value">Actual Price: 265 USD</div>
+                                                <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5>CompTIA Exam Voucher 2</h5>
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-check-circle"></i> CompTIA A+
+                                                </li>
+                                            </ul>
+                                            <p><i class="fa fa-info-circle"></i> Each voucher applies to a single exam
+                                                attempt only</p>
+                                            <div class="d-flex justify-content-between ">
+                                                <div class="actual-price-value">Actual Price: 265 USD</div>
+                                                <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5>CompTIA Exam Voucher 3</h5>
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-check-circle"></i> CompTIA A+
+                                                </li>
+                                            </ul>
+                                            <p><i class="fa fa-info-circle"></i> Each voucher applies to a single exam
+                                                attempt only</p>
+                                            <div class="d-flex justify-content-between ">
+                                                <div class="actual-price-value">Actual Price: 265 USD</div>
+                                                <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-2">
+                                        <div class="card-body">
+                                            <h5>CompTIA Exam Voucher 3</h5>
+                                            <ul>
+                                                <li>
+                                                    <i class="far fa-check-circle"></i> CompTIA A+
+                                                </li>
+                                            </ul>
+                                            <p><i class="fa fa-info-circle"></i> Each voucher applies to a single exam
+                                                attempt only</p>
+                                            <div class="d-flex justify-content-between ">
+                                                <div class="actual-price-value">Actual Price: 265 USD</div>
+                                                <div class="disc-price-value">Discounted Price: 212 USD</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="voucher-btn-group ">
+                                <div class=" d-flex justify-content-between px-5 py-3">
+                                    <div>
+                                        <a href="tel:+917066666666">
+                                            <button class="modal-box-coll-btn "><i class="fas fa-phone-alt icon"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="https://wa.me/">
+                                            <button class=" modal-card-whatsapp-btn">
+                                                <i class="fab fa-whatsapp icon "></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
 
                             </div>
 
