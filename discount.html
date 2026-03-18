@@ -1029,7 +1029,7 @@
 
         .certification-banner .contact-btn {
             background-color: #ffffff;
-            color: #2b5cff;
+            color: #fa7901;
             font-weight: 600;
             font-size: 1rem;
             padding: 12px 30px;
@@ -1052,7 +1052,7 @@
         .certification-banner .contact-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            color: #1a42cc;
+
         }
 
         .certification-banner-img {
@@ -2563,18 +2563,18 @@
         document.head.appendChild(style);
 
         // Parallax effect for floating shapes
-        document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.shape');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
+        // document.addEventListener('mousemove', (e) => {
+        //     const shapes = document.querySelectorAll('.shape');
+        //     const x = e.clientX / window.innerWidth;
+        //     const y = e.clientY / window.innerHeight;
 
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 20;
-                const xOffset = (0.5 - x) * speed;
-                const yOffset = (0.5 - y) * speed;
-                shape.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${index * 45}deg)`;
-            });
-        });
+        //     shapes.forEach((shape, index) => {
+        //         const speed = (index + 1) * 200;
+        //         const xOffset = (0.5 - x) * speed;
+        //         const yOffset = (0.5 - y) * speed;
+        //         shape.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${index * 45}deg)`;
+        //     });
+        // });
 
         // Smooth scroll reveal
         const scrollReveal = () => {
