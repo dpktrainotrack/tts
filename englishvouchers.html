@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Exams Vouchers | TrainoTrack</title>
+    <!-- Importing CSS files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css?ver=6.7.1">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/updated.css">
+
+    <style>
+        @media (min-width: 768px) {
+            .column-left {
+                width: 100%;
+
+            }
+
+            .column-right {
+                width: 100%;
+            }
+        }
+
+        /* large screens */
+        @media (min-width: 1200px) {
+
+            .column-left {
+                width: 67%;
+                order: 1;
+                height: 755px;
+                overflow: auto;
+                overflow-y: scroll;
+                scrollbar-width: none;
+            }
+
+            .column-right {
+                width: 33%;
+                order: 2;
+                position: sticky;
+                top: 0;
+                align-self: flex-start;
+            }
+        }
+
+        /* ========== Voucher Cards Section ========== */
+        .en-vouchers-section {
+            padding: 60px 0;
+            background: var(--tp-grey-2, #f9f9f9);
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        /* Subtle background decorative blob */
+        /* .en-vouchers-section::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 122, 24, 0.08), transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .en-vouchers-section::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(252, 175, 61, 0.06), transparent 70%);
+            bottom: -80px;
+            left: -80px;
+            border-radius: 50%;
+            pointer-events: none;
+
+        } */
+
+        /* Grid Layout */
+        .en-vouchers-cards-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 25px;
+        }
+
+        /* Card */
+        .en-vouchers-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .en-vouchers-card:hover {
+            /* transform: translateY(-8px); */
+            box-shadow: 0 6px 10px rgba(255, 122, 24, 0.15);
+            border-color: rgba(255, 120, 24, 0.521);
+        }
+
+        /* Discount Badge */
+        .voucher-badge {
+            /* position: absolute; */
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, #ff7a18, #FCAF3D);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(255, 122, 24, 0.35);
+            z-index: 2;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Card Inner */
+        .card-item-inner {
+            padding: 32px 28px 20px;
+            flex-grow: 1;
+        }
+
+        /* Logo + Title Header */
+        .card-title-wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .card-logo {
+            max-width: 170px;
+            height: auto;
+            min-width: 60px;
+            background: #fff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); */
+            /* border: 1px solid #f0f0f0; */
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .card-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #585555;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Pricing */
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price-label {
+            font-size: 18px;
+            color: #888;
+            font-weight: 500;
+            padding-left: 17px;
+        }
+
+        .price-original {
+            font-size: 18px;
+            color: #bbb;
+            text-decoration: line-through;
+            font-weight: 500;
+            padding-right: 14px;
+        }
+
+        .price-row-highlight {
+            background: linear-gradient(90deg, rgba(255, 122, 24, 0.06), rgba(252, 175, 61, 0.06));
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            /* align-items: center; */
+            justify-content: space-between;
+            border: 1px dashed #ffe4b5;
+        }
+
+        .price-label-highlight {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ff7a18;
+        }
+
+        .price-our {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ff7a18;
+            line-height: 1;
+        }
+
+        .price-tax {
+            font-size: 11px;
+            color: #999;
+            font-weight: 400;
+            display: block;
+            margin-top: 2px;
+            text-align: right;
+        }
+
+        /* Savings Strip */
+        .savings-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 6px;
+            padding: 8px;
+            background: #eafff5;
+            border-radius: 8px;
+        }
+
+        .savings-strip i {
+            color: #11e0a6;
+            font-size: 14px;
+        }
+
+        .savings-strip span {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0DCA95;
+        }
+
+        /* Card Footer */
+        .en-vouchers-card-footer {
+            padding: 0 28px 28px;
+            margin-top: auto;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #ff7a18, #FCAF3D);
+            color: #ffffff;
+            border: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 20px rgba(255, 122, 24, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 122, 24, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(255, 122, 24, 0.25);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .en-vouchers-section {
+                padding: 40px 0;
+            }
+
+            .en-vouchers-cards-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card-item-inner {
+                padding: 24px 20px 16px;
+            }
+
+            .en-vouchers-card-footer {
+                padding: 0 20px 20px;
+            }
+
+            .card-title {
+                font-size: 18px;
+            }
+
+            .price-our {
+                font-size: 22px;
+            }
+        }
+
+        /* =======experience-the-difference=========== */
+        .experience-difference {
+            background: linear-gradient(to bottom, #ffffff, #f2edd4);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            perspective: 1000px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            padding-top: 30px;
+
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+            cursor: pointer;
+            border-bottom: 5px solid #ff7a18;
+
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .feature-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+
+
+
+        .feature-card:hover {
+            border-bottom: 5px solid #ff7a18;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(255, 122, 24, 0.2);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #ff7a18 0%, #ffa502 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(255, 122, 24, 0.3);
+        }
+
+        .feature-card:hover .icon-wrapper {
+            transform: rotateY(180deg) scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 122, 24, 0.4);
+        }
+
+        .icon-wrapper i {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* .feature-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 122, 24, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        } */
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #ff7a18;
+            font-weight: 600;
+            border: 2px solid rgba(255, 122, 24, 0.2);
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #ff7a18;
+            opacity: 0;
+            animation: pulse 2s ease-out infinite;
+        }
+
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff7a18, #ffa502);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: #7f8c8d;
+            font-size: 1rem;
+            /* margin-top: 20px; */
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <main>
+        <!-- <section class="banner">
+            <div class="swiper " id="engExamVoucherSwiper">
+                <div class="swiper-wrapper"> 
+                    <div class="swiper-slide">
+                        <div class="image-container">
+                            <img src="/assets/img/hero/heor-banner2.jpeg" alt="" class="w-100 h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="image-container">
+                            <img src="/assets/img/hero/hero-banner1.jpeg" alt="" class="w-100 h-auto">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section> -->
+        <section class="en-vouchers-section">
+            <div class="container">
+                <div class="row flex-column-reverse flex-xl-row">
+                    <div class="column-left">
+                        <div class="en-vouchers-cards-wrapper ">
+                            <div class="en-vouchers-card">
+                                <div class="card-item-inner">
+                                    <div class="card-title-wrapper">
+                                        <div class="card-logo">
+                                            <img src="assets/img/discount-page/pearson.png" alt="Pearson">
+                                        </div>
+                                        <h3 class="card-title">PTE Exam Voucher</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="price-row">
+                                            <span class="price-label">Price</span>
+                                            <span class="price-original">₹ 18,000</span>
+                                        </div>
+                                        <div class="price-row-highlight">
+                                            <span class="price-label-highlight">Our Price</span>
+                                            <div>
+                                                <span class="price-our">₹ 16,200</span>
+                                                <span class="price-tax">*Including Tax</span>
+                                            </div>
+                                        </div>
+                                        <div class="savings-strip">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span>You save ₹ 1,800 <span
+                                                    style="color: #ff7a18; font-weight: 700; padding-left: 5px;">10%
+                                                    OFF</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="en-vouchers-card-footer">
+                                    <button class="cta-button" data-bs-toggle="modal"
+                                        data-bs-target="#enquiryModal">Enquiry Now</button>
+                                </div>
+                            </div>
+
+                            <div class="en-vouchers-card">
+                                <div class="card-item-inner">
+                                    <div class="card-title-wrapper">
+                                        <div class="card-logo">
+                                            <img src="assets/img/english-voucher/english.png" alt="Pearson">
+                                        </div>
+                                        <h3 class="card-title">PSI SELT UKVI Exam Voucher</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="price-row">
+                                            <span class="price-label">Price</span>
+                                            <span class="price-original">₹ 17,000</span>
+                                        </div>
+                                        <div class="price-row-highlight">
+                                            <span class="price-label-highlight">Our Price</span>
+                                            <div>
+                                                <span class="price-our">₹ 13,500</span>
+                                                <span class="price-tax">*Including Tax</span>
+                                            </div>
+                                        </div>
+                                        <div class="savings-strip">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span>You save ₹ 3,500 <span
+                                                    style="color: #ff7a18; font-weight: 700; padding-left: 5px;">21%
+                                                    OFF</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="en-vouchers-card-footer">
+                                    <button class="cta-button">Enquiry Now</button>
+                                </div>
+                            </div>
+                            <div class="en-vouchers-card">
+                                <div class="card-item-inner">
+                                    <div class="card-title-wrapper">
+                                        <div class="card-logo">
+                                            <img src="assets/img/discount-page/gre.png" alt="GRE">
+                                        </div>
+                                        <h3 class="card-title">GRE Exam Voucher</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="price-row">
+                                            <span class="price-label">Price</span>
+                                            <span class="price-original">₹ 22,500</span>
+                                        </div>
+                                        <div class="price-row-highlight">
+                                            <span class="price-label-highlight">Our Price</span>
+                                            <div>
+                                                <span class="price-our">₹ 21,500</span>
+                                                <span class="price-tax">*Including Tax</span>
+                                            </div>
+                                        </div>
+                                        <div class="savings-strip">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span>You save ₹ 1,000 <span
+                                                    style="color: #ff7a18; font-weight: 700; padding-left: 5px;">4%
+                                                    OFF</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="en-vouchers-card-footer">
+                                    <button class="cta-button">Enquiry Now</button>
+                                </div>
+                            </div>
+                            <div class="en-vouchers-card">
+                                <div class="card-item-inner">
+                                    <div class="card-title-wrapper">
+                                        <div class="card-logo">
+                                            <img src="assets/img/english-voucher/duolingo.png" alt="Duolingo">
+                                        </div>
+                                        <h3 class="card-title">Duolingo Exam Voucher</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="price-row">
+                                            <span class="price-label">Price</span>
+                                            <span class="price-original">₹ 5,610</span>
+                                        </div>
+                                        <div class="price-row-highlight">
+                                            <span class="price-label-highlight">Our Price</span>
+                                            <div>
+                                                <span class="price-our">₹ 4,800</span>
+                                                <span class="price-tax">*Including Tax</span>
+                                            </div>
+                                        </div>
+                                        <div class="savings-strip">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span>You save ₹ 810 <span
+                                                    style="color: #ff7a18; font-weight: 700; padding-left: 5px;">14%
+                                                    OFF</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="en-vouchers-card-footer">
+                                    <button class="cta-button">Enquiry Now</button>
+                                </div>
+                            </div>
+                            <div class="en-vouchers-card">
+                                <div class="card-item-inner">
+                                    <div class="card-title-wrapper">
+                                        <div class="card-logo">
+                                            <img src="assets/img/discount-page/toefl.png" alt="Duolingo">
+                                        </div>
+                                        <h3 class="card-title">TOEFL Exam Voucher</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="price-row">
+                                            <span class="price-label">Price</span>
+                                            <span class="price-original">₹ 18,000</span>
+                                        </div>
+                                        <div class="price-row-highlight">
+                                            <span class="price-label-highlight">Our Price</span>
+                                            <div>
+                                                <span class="price-our">₹ 13,900</span>
+                                                <span class="price-tax">*Including Tax</span>
+                                            </div>
+                                        </div>
+                                        <div class="savings-strip">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span>You save ₹ 4100 <span
+                                                    style="color: #ff7a18; font-weight: 700; padding-left: 5px;">23%
+                                                    OFF</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="en-vouchers-card-footer">
+                                    <button class="cta-button">Enquiry Now</button>
+                                </div>
+                            </div>
+                            <div class="en-vouchers-card">
+                                <div class="card-item-inner">
+                                    <div class="card-title-wrapper">
+                                        <div class="card-logo">
+                                            <img src="assets/img/discount-page/ielts.png" alt="Duolingo">
+                                        </div>
+                                        <h3 class="card-title">IELTS Exam Voucher</h3>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="price-row">
+                                            <span class="price-label">Price</span>
+                                            <span class="price-original">₹ 18,000</span>
+                                        </div>
+                                        <div class="price-row-highlight">
+                                            <span class="price-label-highlight">Our Price</span>
+                                            <div>
+                                                <span class="price-our">₹ 17,500</span>
+                                                <span class="price-tax">*Including Tax</span>
+                                            </div>
+                                        </div>
+                                        <div class="savings-strip">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span>You save ₹ 500 <span
+                                                    style="color: #ff7a18; font-weight: 700; padding-left: 5px;">3%
+                                                    OFF</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="en-vouchers-card-footer">
+                                    <button class="cta-button">Enquiry Now</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class=" column-right d-flex justify-content-end">
+                        <div class="inquery-form-wrapper mb-5 mb-xl-0 w-100">
+                            <style>
+                                .modern-form-card {
+                                    background: white;
+                                    border-radius: 20px;
+                                    padding: 35px 30px;
+                                    box-shadow: 0 10px 40px rgba(255, 122, 24, 0.12);
+                                    border: 2px solid rgba(255, 122, 24, 0.08);
+                                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                .modern-form-card:hover {
+                                    transform: translateY(-5px);
+                                    box-shadow: 0 20px 50px rgba(255, 122, 24, 0.2);
+                                }
+
+                                .modern-form-header {
+                                    font-size: 1.8rem;
+                                    color: #2d3436;
+                                    margin-bottom: 30px;
+                                    font-weight: 700;
+                                    position: relative;
+                                    display: inline-block;
+                                    width: 100%;
+                                    text-align: center;
+                                }
+
+                                .modern-form-header::after {
+                                    content: '';
+                                    position: absolute;
+                                    bottom: -10px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 60px;
+                                    height: 4px;
+                                    background: linear-gradient(90deg, #ff7a18, #ffa502);
+                                    border-radius: 2px;
+                                }
+
+                                .modern-input {
+                                    border-radius: 12px;
+                                    border: 2px solid #edf2f7;
+                                    padding: 12px 20px;
+                                    font-size: 0.95rem;
+                                    width: 100%;
+                                    background-color: #f8fafc;
+                                    transition: all 0.3s ease;
+                                    color: #2d3436;
+                                }
+
+                                .modern-input:focus {
+                                    outline: none;
+                                    border-color: #ff7a18;
+                                    background-color: #ffffff;
+                                    box-shadow: 0 0 0 4px rgba(255, 122, 24, 0.1);
+                                }
+
+                                .modern-input::placeholder {
+                                    color: #a0aec0;
+                                    font-weight: 500;
+                                }
+
+                                .modern-submit-btn {
+                                    background: linear-gradient(135deg, #ff7a18 0%, #ffa502 100%);
+                                    color: white;
+                                    border: none;
+                                    padding: 14px 20px;
+                                    border-radius: 50px;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    cursor: pointer;
+                                    display: inline-flex;
+                                    align-items: center;
+                                    width: 100%;
+                                    justify-content: center;
+                                    gap: 10px;
+                                    transition: all 0.3s ease;
+                                    box-shadow: 0 8px 20px rgba(255, 122, 24, 0.3);
+                                    margin-top: 10px;
+                                    text-transform: uppercase;
+                                    letter-spacing: 1px;
+                                }
+
+                                .modern-submit-btn:hover {
+                                    transform: translateY(-3px);
+                                    box-shadow: 0 12px 30px rgba(255, 122, 24, 0.4);
+                                }
+
+                                .modern-submit-btn i {
+                                    transition: transform 0.3s ease;
+                                }
+
+                                .modern-submit-btn:hover i {
+                                    transform: translateX(5px);
+                                }
+
+                                .modern-form-group {
+                                    margin-bottom: 20px;
+                                    position: relative;
+                                }
+
+                                .modern-form-group i.icon {
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    right: 20px;
+                                    color: #a0aec0;
+                                    transition: color 0.3s ease;
+                                    pointer-events: none;
+                                }
+
+                                .modern-input:focus+i.icon {
+                                    color: #ff7a18;
+                                }
+
+                                textarea.modern-input {
+                                    resize: none;
+                                }
+
+                                textarea.modern-input+i.icon {
+                                    top: 24px;
+                                    transform: none;
+                                }
+
+                                select.modern-input {
+                                    appearance: none;
+                                    -webkit-appearance: none;
+                                    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0aec0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                                    background-repeat: no-repeat;
+                                    background-position: right 15px center;
+                                    background-size: 15px;
+                                    padding-right: 40px;
+                                }
+
+                                select.modern-input:focus {
+                                    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a18' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                                }
+
+                                /* ======= Affordable Certification Banner ======= */
+                                .certification-banner {
+                                    background: linear-gradient(90deg, #e9791ef8, #ff8c00, #e9911e);
+                                    padding: 40px 0;
+                                    position: relative;
+                                    overflow: hidden;
+                                    border-radius: 0;
+                                    color: #fff;
+                                }
+
+                                .certification-banner h2 {
+                                    font-size: 2.8rem;
+                                    font-weight: 700;
+                                    margin-bottom: 20px;
+                                    color: #ffffff;
+                                    line-height: 1.2;
+                                }
+
+                                .certification-banner p {
+                                    font-size: 1.1rem;
+                                    line-height: 1.8;
+                                    margin-bottom: 30px;
+                                    color: rgba(255, 255, 255, 0.95);
+                                }
+
+                                .certification-banner .contact-btn {
+                                    background-color: #ffffff;
+                                    color: #fa7901;
+                                    font-weight: 600;
+                                    font-size: 1rem;
+                                    padding: 12px 30px;
+                                    border-radius: 50px;
+                                    border: none;
+                                    display: inline-flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    transition: all 0.3s ease;
+                                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                                    text-decoration: none;
+                                }
+
+                                .certification-banner .contact-btn i {
+                                    font-size: 1.4rem;
+                                    color: #25D366;
+                                    /* WhatsApp Green */
+                                }
+
+                                .certification-banner .contact-btn:hover {
+                                    transform: translateY(-3px);
+                                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+
+                                }
+
+                                .certification-banner-img {
+                                    max-width: 100%;
+                                    height: auto;
+                                    position: relative;
+                                    z-index: 2;
+                                    animation: float 6s ease-in-out infinite;
+                                }
+
+                                @media (max-width: 991px) {
+                                    .certification-banner {
+                                        padding: 40px 0;
+                                        text-align: center;
+                                    }
+
+                                    .certification-banner h2 {
+                                        font-size: 2.2rem;
+                                    }
+
+                                    .certification-banner-img {
+                                        margin-top: 40px;
+                                        max-width: 80%;
+                                    }
+                                }
+                            </style>
+
+                            <div class=" w-100 ">
+                                <div class="modern-form-card" id="sticky">
+                                    <h3 class="modern-form-header">Enquire Now</h3>
+
+                                    <div class="form-box mt-4">
+                                        <div id="contact111">
+
+                                            <form method="post" class="enquiry-form" action="/certifications/isaca">
+
+                                                <!-- Hidden Fields -->
+                                                <input type="hidden" name="CategoryIdForRedirect">
+                                                <input type="hidden" name="EnquirePurpose"
+                                                    value="ISACA Certifications Exam Voucher">
+                                                <input type="hidden" name="PageURL"
+                                                    value="https://www.trainotracksolutions.com/certifications/isaca">
+                                                <input type="hidden" name="UtmSource" value="">
+                                                <input type="hidden" name="UtmMedium" value="">
+                                                <input type="hidden" name="UtmCampaign" value="">
+
+                                                <!-- Name -->
+                                                <div class="modern-form-group">
+                                                    <input class="modern-input" id="Name" name="Name" type="text"
+                                                        placeholder="Full Name" required>
+                                                    <i class="fas fa-user icon"></i>
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="modern-form-group">
+                                                    <input class="modern-input" id="Email" name="Email" type="email"
+                                                        placeholder="Email Address" required>
+                                                    <i class="fas fa-envelope icon"></i>
+                                                    <span id="errorEmailId111"
+                                                        style="color:#e53e3e; font-size: 0.85rem; margin-top: 5px; display: block;"></span>
+                                                </div>
+
+                                                <!-- Phone -->
+                                                <div class="modern-form-group">
+                                                    <input class="modern-input" id="PhoneNumber" name="PhoneNumber"
+                                                        type="tel" placeholder="Phone Number" pattern="[0-9]{7,15}"
+                                                        maxlength="15" required>
+                                                    <i class="fas fa-phone-alt icon"></i>
+                                                </div>
+
+                                                <!-- Country -->
+                                                <div class="modern-form-group">
+                                                    <select class="modern-input" name="Country" id="Country" required>
+                                                        <option value="">Select Country</option>
+                                                        <option value="India" selected>India</option>
+                                                        <option value="United States">United States</option>
+                                                        <option value="United Kingdom">United Kingdom</option>
+                                                        <option value="Australia">Australia</option>
+                                                        <!-- keep your full country list -->
+                                                    </select>
+                                                </div>
+
+                                                <!-- Message -->
+                                                <div class="modern-form-group">
+                                                    <textarea class="modern-input" id="Message" name="Message"
+                                                        placeholder="Your Message" rows="1"></textarea>
+                                                    <i class="fas fa-comment-dots icon"></i>
+                                                </div>
+
+                                                <!-- Submit -->
+                                                <div class="bt-center">
+                                                    <button type="submit" class="modern-submit-btn submit-btn">
+                                                        <span>Request For Voucher</span>
+                                                        <i class="fas fa-paper-plane"></i>
+                                                    </button>
+
+                                                    <div class="modern-submit-btn loading-btn"
+                                                        style="display:none; cursor: not-allowed; opacity: 0.8;">
+                                                        <i class="fas fa-spinner fa-spin"></i>
+                                                        <span>Processing...</span>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Success -->
+                                                <div id="SuccessMessage1"
+                                                    style="display:none; color: #047857; text-align: center; margin-top: 15px; background: #d1fae5; padding: 12px; border-radius: 8px; font-weight: 500; border: 1px solid #a7f3d0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                                                    <i class="fas fa-check-circle mr-2"></i> Thank you! Your enquiry has
+                                                    been submitted.
+                                                </div>
+
+                                                <!-- Token -->
+                                                <input name="__RequestVerificationToken" type="hidden"
+                                                    value="CfDJ8DHhN3Impy5HjV7WRdhdGDpoi9rmvCkdqXGygBVWjgLUhHW0KIf2AzbqSZuaoURThW2iQA4KwBOpztL_F3m5tYC9d29iEA_-HlBGarraFu2AbKxu_LvuTQ6C3eIOsvZllMc9j--dHKcND_pTE-PSJGw">
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-container">
+                <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Enquire Now</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-box ">
+                                    <form method="post" class="enquiry-form" action="/certifications/isaca">
+
+                                        <!-- Hidden Fields -->
+                                        <input type="hidden" name="CategoryIdForRedirect">
+                                        <input type="hidden" name="EnquirePurpose"
+                                            value="ISACA Certifications Exam Voucher">
+                                        <input type="hidden" name="PageURL"
+                                            value="https://www.trainotracksolutions.com/certifications/isaca">
+                                        <input type="hidden" name="UtmSource" value="">
+                                        <input type="hidden" name="UtmMedium" value="">
+                                        <input type="hidden" name="UtmCampaign" value="">
+
+                                        <!-- Name -->
+                                        <div class="modern-form-group">
+                                            <input class="modern-input" id="Name" name="Name" type="text"
+                                                placeholder="Full Name" required>
+                                            <i class="fas fa-user icon"></i>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="modern-form-group">
+                                            <input class="modern-input" id="Email" name="Email" type="email"
+                                                placeholder="Email Address" required>
+                                            <i class="fas fa-envelope icon"></i>
+                                            <span id="errorEmailId111"
+                                                style="color:#e53e3e; font-size: 0.85rem; margin-top: 5px; display: block;"></span>
+                                        </div>
+
+                                        <!-- Phone -->
+                                        <div class="modern-form-group">
+                                            <input class="modern-input" id="PhoneNumber" name="PhoneNumber" type="tel"
+                                                placeholder="Phone Number" pattern="[0-9]{7,15}" maxlength="15"
+                                                required>
+                                            <i class="fas fa-phone-alt icon"></i>
+                                        </div>
+
+                                        <!-- Country -->
+                                        <div class="modern-form-group">
+                                            <select class="modern-input" name="Country" id="Country" required>
+                                                <option value="">Select Cities</option>
+                                                <option value="India" selected>Delhi</option>
+                                                <option value="United States">Jaipur</option>
+                                                <option value="United Kingdom">Nagpur </option>
+                                                <option value="Australia">Mumbai</option>
+                                                <!-- keep your full country list -->
+                                            </select>
+                                        </div>
+
+                                        <!-- Message -->
+                                        <div class="modern-form-group">
+                                            <textarea class="modern-input" id="Message" name="Message"
+                                                placeholder="Your Message" rows="1"></textarea>
+                                            <i class="fas fa-comment-dots icon"></i>
+                                        </div>
+
+                                        <!-- Submit -->
+                                        <div class="bt-center">
+                                            <button type="submit" class="modern-submit-btn submit-btn">
+                                                <span>Request For Voucher</span>
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+
+                                            <div class="modern-submit-btn loading-btn"
+                                                style="display:none; cursor: not-allowed; opacity: 0.8;">
+                                                <i class="fas fa-spinner fa-spin"></i>
+                                                <span>Processing...</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Success -->
+                                        <div id="SuccessMessage1"
+                                            style="display:none; color: #047857; text-align: center; margin-top: 15px; background: #d1fae5; padding: 12px; border-radius: 8px; font-weight: 500; border: 1px solid #a7f3d0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                                            <i class="fas fa-check-circle mr-2"></i> Thank you! Your enquiry has
+                                            been submitted.
+                                        </div>
+
+                                        <!-- Token -->
+                                        <input name="__RequestVerificationToken" type="hidden"
+                                            value="CfDJ8DHhN3Impy5HjV7WRdhdGDpoi9rmvCkdqXGygBVWjgLUhHW0KIf2AzbqSZuaoURThW2iQA4KwBOpztL_F3m5tYC9d29iEA_-HlBGarraFu2AbKxu_LvuTQ6C3eIOsvZllMc9j--dHKcND_pTE-PSJGw">
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class=" inner-space-top inner-space-bottom experience-difference">
+            <div class="">
+                <div class="loading-bar" id="loadingBar"></div>
+
+                <div class="floating-shapes">
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                </div>
+
+                <div class="container">
+                    <div class="section-header">
+                        <h3 class=" tp-section-title mb-4 fancy-title">Experience The <span>Difference</span> </h3>
+                        <p>Discover why thousands of professionals trust us for their certification journey</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>100% Authentic</h3>
+                            <p>As an authorized reseller, we provide authentic exam vouchers globally—guaranteeing a
+                                safe, secure, and reliable certification experience.</p>
+
+                        </div>
+
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h3>Huge Savings</h3>
+                            <p>Cut down your exam costs with exclusive discounted vouchers for leading providers like
+                                AWS, Oracle, and Microsoft.</p>
+                            <!-- <div class="stats-badge">
+                                <i class="fas fa-percentage"></i>
+                                <span>Up to 40% Off</span>
+                            </div> -->
+                        </div>
+
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Instant Delivery</h3>
+                            <p>Get your valid exam voucher code delivered to your inbox within minutes—so you can book
+                                your exam right away.</p>
+                        </div>
+
+                        <div class="feature-card" data-tilt>
+                            <div class="icon-wrapper">
+                                <div class="pulse-ring"></div>
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>24/7 Support</h3>
+                            <p>Get complete assistance from our expert team, from buying your voucher to scheduling your
+                                exam—making the entire process simple and stress-free.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <section class="certification-banner professional-certifications">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h2>Smart Savings on Professional Certifications</h2>
+                        <p>Boost your career with genuine, discounted exam vouchers for top IT certifications like AWS
+                            and Oracle—empowering you to succeed without overspending.</p>
+                        <a href="https://wa.me/yourwhatsappnumber" class="contact-btn">
+                            <i class="fab fa-whatsapp"></i> Contact Us
+                        </a>
+                    </div>
+                    <div class="col-lg-5 text-center text-lg-end">
+                        <img src="assets/img/discount-page/cert1.png" alt="Global Community"
+                            class="certification-banner-img" style="border-radius: 60px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="tp-why-choose-area inner-space-bottom  inner-space-top   faq-section"
+            style="background: var(--tp-grey-1);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 text-center">
+                        <h3 class="tp-section-title mb-4 fancy-title">Frequently Asked <span>Questions</span> </h3>
+                    </div>
+                </div>
+
+                <!-- FAQ Content -->
+                <div class="row align-items-center g-4">
+                    <!-- Image -->
+                    <!-- <div class="col-lg-5 text-center">
+                        <img src="/assets/img/it-logo-webp/tot_faq.webp" class="img-fluid" alt="FAQ Image">
+                    </div> -->
+
+                    <!-- Accordion -->
+                    <div class="col-12">
+                        <div class="accordion" id="faqAccordion">
+
+                            <!-- Item 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Can I retake the exam?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, but the retake rules depend on the specific certification provider. Each
+                                        exam body (like Microsoft, CompTIA, AWS) has its retake policy.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Do all exams have different booking conditions?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Exactly. Booking rules, scheduling options, and validity vary with each
+                                        certification provider, so it’s important to check the conditions before
+                                        purchasing.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        Are these vouchers accepted for study and migration abroad?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, our English exam vouchers are valid for purposes like university admission,
+                                        job applications, and immigration processes.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        Can I change my exam date after booking?
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Most exam boards allow rescheduling, but policies differ between tests like PTE,
+                                        TOEFL, and SELT. Always review their guidelines before making changes.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                        Do I really need training before using a voucher?
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        While not mandatory, training enhances your chances of success by preparing you
+                                        with the right strategies and practice.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingsix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                                        Is training flexible for working professionals?
+                                    </button>
+                                </h2>
+                                <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        Yes, we provide online and weekend-friendly options so you can prepare at your
+                                        own pace without disturbing your job or studies.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Importing JS files -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/swiper-bundle.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        var swiper = new Swiper("#engExamVoucherSwiper", {
+            loop: true,
+            loopedSlides: 2,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true,
+            },
+            speed: 900,
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            //     pauseOnMouseEnter: true
+            // },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+</body>
+
+</html>
