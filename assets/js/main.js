@@ -8,9 +8,9 @@
     "use strict";
 
     var windowOn = $(window)
-        ///////////////////////////////////////////////////
-        // 01. PreLoader Js
-    windowOn.on('load', function() {
+    ///////////////////////////////////////////////////
+    // 01. PreLoader Js
+    windowOn.on('load', function () {
         $('#loading').fadeOut(500);
     });
 
@@ -22,7 +22,7 @@
 
     ///////////////////////////////////////////////////
     // 03. scroll-to-target 
-    windowOn.on('scroll', function() {
+    windowOn.on('scroll', function () {
         var scroll = windowOn.scrollTop();
         if (scroll < 500) {
             $('.scroll-to-target').removeClass('open');
@@ -35,7 +35,7 @@
     ///////////////////////////////////////////////////
     // 04. Scroll Up Js
     if ($('.scroll-to-target').length) {
-        $(".scroll-to-target").on('click', function() {
+        $(".scroll-to-target").on('click', function () {
             var target = $(this).attr('data-target');
             // animate
             $('html, body').animate({
@@ -55,14 +55,14 @@
 
     ///////////////////////////////////////////////////
     // 06. PreLoader Js
-    windowOn.on('load', function() {
+    windowOn.on('load', function () {
         $("#loading").fadeOut(500);
 
     });
 
     ///////////////////////////////////////////////////
     // 07. Sticky Header Js
-    windowOn.on('scroll', function() {
+    windowOn.on('scroll', function () {
         var scroll = windowOn.scrollTop();
         if (scroll < 400) {
             $("#header-sticky").removeClass("header-sticky");
@@ -81,7 +81,7 @@
 
 
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
 
         $('#preloader').delay(350).fadeOut('slow');
 
@@ -91,15 +91,15 @@
 
     ////////////////////////////////////////////////////
     // 09. Sidebar Js
-    $(".tp-menu-bar").on("click", function() {
+    $(".tp-menu-bar").on("click", function () {
         $(".tpoffcanvas").addClass("opened");
         $(".body-overlay").addClass("apply");
     });
-    $(".close-btn").on("click", function() {
+    $(".close-btn").on("click", function () {
         $(".tpoffcanvas").removeClass("opened");
         $(".body-overlay").removeClass("apply");
     });
-    $(".body-overlay").on("click", function() {
+    $(".body-overlay").on("click", function () {
         $(".tpoffcanvas").removeClass("opened");
         $(".body-overlay").removeClass("apply");
     });
@@ -112,15 +112,15 @@
 
     ////////////////////////////////////////////////////
     // 11. Data CSS Js
-    $("[data-background").each(function() {
+    $("[data-background").each(function () {
         $(this).css("background-image", "url( " + $(this).attr("data-background") + "  )");
     });
 
-    $("[data-width]").each(function() {
+    $("[data-width]").each(function () {
         $(this).css("width", $(this).attr("data-width"));
     });
 
-    $("[data-bg-color]").each(function() {
+    $("[data-bg-color]").each(function () {
         $(this).css("background-color", $(this).attr("data-bg-color"));
     });
 
@@ -140,23 +140,23 @@
         prevArrow: '<button type="button" class="slick-prev"><i class="fal fa-long-arrow-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="fal fa-long-arrow-right"></i></button>',
         responsive: [{
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                }
+            breakpoint: 992,
+            settings: {
+                arrows: false,
             }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+            }
+        }
         ]
     });
 
@@ -168,33 +168,33 @@
         arrows: false,
         Infinity: true,
         responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 5,
-                    arrows: false,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 4,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                }
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 5,
+                arrows: false,
             }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                arrows: false,
+                slidesToShow: 4,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
+            }
+        }
         ]
     });
     // 09. Home-1-Slider js
@@ -206,51 +206,51 @@
         centerMode: true,
         centerPadding: '160px',
         responsive: [{
-                breakpoint: 1600,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 1400,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 1200,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                    centerPadding: '90px',
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                    centerPadding: '0px',
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    centerPadding: '0px',
-                    slidesToShow: 1,
-
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerPadding: '0px',
-                    slidesToShow: 1,
-                }
+            breakpoint: 1600,
+            settings: {
+                arrows: false,
+                slidesToShow: 2
             }
+        },
+        {
+            breakpoint: 1400,
+            settings: {
+                arrows: false,
+                slidesToShow: 2
+            }
+        },
+        {
+            breakpoint: 1200,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
+                centerPadding: '90px',
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+                centerPadding: '0px',
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerPadding: '0px',
+                slidesToShow: 1,
+
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerPadding: '0px',
+                slidesToShow: 1,
+            }
+        }
         ]
     });
     // 09. Home-1-Slider js
@@ -258,38 +258,38 @@
         fade: false,
         autoplay: false,
         slidesToShow: 3,
-        
+
         arrows: false,
         dots: true,
         Infinity: true,
         responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
+            breakpoint: 1200,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
             }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        }
         ]
     });
     // 09. Home-1-Slider js
@@ -301,33 +301,33 @@
         dots: false,
         Infinity: true,
         responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
+            breakpoint: 1200,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
             }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        }
         ]
     });
     // 09. Home-1-Slider js
@@ -341,40 +341,40 @@
         prevArrow: '<button type="button" class="slick-prev"><i class="fal fa-arrow-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="fal fa-arrow-right"></i></button>',
         responsive: [{
-                breakpoint: 1400,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 1200,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 2,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
+            breakpoint: 1400,
+            settings: {
+                arrows: false,
+                slidesToShow: 3,
             }
+        },
+        {
+            breakpoint: 1200,
+            settings: {
+                arrows: false,
+                slidesToShow: 3,
+            }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                arrows: false,
+                slidesToShow: 2,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        }
         ]
     });
     // 09. Home-1-Slider js
@@ -386,33 +386,33 @@
         dots: true,
         Infinity: true,
         responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    slidesToShow: 1,
-                }
+            breakpoint: 1200,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
             }
+        },
+        {
+            breakpoint: 992,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                slidesToShow: 1,
+            }
+        }
         ]
     });
 
@@ -427,17 +427,17 @@
 
 
     // 20. Show Login Toggle Js
-    $('#showlogin').on('click', function() {
+    $('#showlogin').on('click', function () {
         $('#checkout-login').slideToggle(900);
     });
 
     /*-------------------------
 
-    	showcoupon toggle function
+        showcoupon toggle function
 
     --------------------------*/
 
-    $('#showcoupon').on('click', function() {
+    $('#showcoupon').on('click', function () {
 
         $('#checkout_coupon').slideToggle(900);
 
@@ -446,11 +446,11 @@
 
     /*-------------------------
 
-    	Create an account toggle function
+        Create an account toggle function
 
     --------------------------*/
 
-    $('#cbox').on('click', function() {
+    $('#cbox').on('click', function () {
 
         $('#cbox_info').slideToggle(900);
 
@@ -460,11 +460,11 @@
 
     /*-------------------------
 
-    	Create an account toggle function
+        Create an account toggle function
 
     --------------------------*/
 
-    $('#ship-box').on('click', function() {
+    $('#ship-box').on('click', function () {
 
         $('#ship-box-info').slideToggle(1000);
 
@@ -479,7 +479,7 @@
 
     ////////////////////////////////////////////////////
     //26.isotope
-    $('.grid').imagesLoaded(function() {
+    $('.grid').imagesLoaded(function () {
         // init Isotope
         var $grid = $('.grid').isotope({
             itemSelector: '.grid-item',
@@ -494,7 +494,7 @@
 
 
         // filter items on button click
-        $('.masonary-menu').on('click', 'button', function() {
+        $('.masonary-menu').on('click', 'button', function () {
             var filterValue = $(this).attr('data-filter');
             $grid.isotope({
                 filter: filterValue,
@@ -508,7 +508,7 @@
         });
 
         //for menu active class
-        $('.masonary-menu button').on('click', function(event) {
+        $('.masonary-menu button').on('click', function (event) {
             $(this).siblings('.active').removeClass('active');
             $(this).addClass('active');
             event.preventDefault();
@@ -517,16 +517,16 @@
     });
 
     // 05. Search Js
-    $(".button-search-toggle").on("click", function() {
+    $(".button-search-toggle").on("click", function () {
         $(".search-btn-wrap").toggleClass("header_search-open");
     });
-    $("body > *:not(header)").on("click", function() {
+    $("body > *:not(header)").on("click", function () {
         $(".search-btn-wrap").removeClass("header_search-open");
     });
 
     ////////////////////////////////////////////////////
     // 16. Cart Quantity Js
-    $('.cart-minus').on('click', function() {
+    $('.cart-minus').on('click', function () {
         var $input = $(this).parent().find('input');
         var count = parseInt($input.val()) - 1;
         count = count < 1 ? 1 : count;
@@ -535,7 +535,7 @@
         return false;
     });
 
-    $('.cart-plus').on('click', function() {
+    $('.cart-plus').on('click', function () {
         var $input = $(this).parent().find('input');
         $input.val(parseInt($input.val()) + 1);
         $input.change();
@@ -557,7 +557,7 @@
 
             values: [75, 300],
 
-            slide: function(event, ui) {
+            slide: function (event, ui) {
 
                 $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
 
@@ -569,7 +569,7 @@
 
             " - $" + $("#slider-range").slider("values", 1));
 
-        $('#filter-btn').on('click', function() {
+        $('#filter-btn').on('click', function () {
 
             $('.filter-widget').slideToggle(1000);
 
@@ -586,7 +586,7 @@
 })(jQuery);
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const tocList = document.getElementById('toc-list');
     const headings = document.querySelectorAll('article h1, article h2, article h3, article h4');
 
@@ -698,7 +698,7 @@ function Enquiry111() {
         document.querySelector(".breadcrumb__title")?.innerText ||
         document.querySelector(".customh1")?.innerText || "";
 
-   // let examName = document.querySelector(".customh1").innerText;
+    // let examName = document.querySelector(".customh1").innerText;
     var isValid = true;
     $('#contact111 input[type="text"]').each(function () {
         if ($.trim($(this).val()) == '') {
@@ -798,7 +798,7 @@ function Enquiry10() {
         user.Name = $("#txtName10").val();
         user.Phone = $("#txtPhone10").val();
         user.EmailID = $("#txtEmail10").val();
-       // user.Subject = $("#txtSubject1").val();
+        // user.Subject = $("#txtSubject1").val();
         user.Country = $("#txtComment10").val();
 
         $("#btnSubmit10").css("display", "none");
@@ -830,7 +830,7 @@ function Enquiry10() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Check if the URL path starts with /certifications/
     if (window.location.pathname.startsWith("/certifications/")) {
         var canonicalLink = document.createElement("link");
@@ -844,15 +844,15 @@ document.addEventListener("DOMContentLoaded", function() {
 var swiper = new Swiper(".hero-swiper", {
     loop: true,
     // loopedSlides: 2,
-   effect: "fade", 
+    effect: "fade",
     fadeEffect: {
-        crossFade: true, 
+        crossFade: true,
     },
     speed: 900,
     autoplay: {
         delay: 3000,
         disableOnInteraction: false,
-        pauseOnMouseEnter: true 
+        pauseOnMouseEnter: true
     },
     pagination: {
         el: ".swiper-pagination",
@@ -871,8 +871,8 @@ var slider2 = new Swiper(".slider2", {
     },
 
     speed: 1500,
-    slidesPerView: 5, 
-    spaceBetween: 30, 
+    slidesPerView: 5,
+    spaceBetween: 30,
     breakpoints: {
         320: {
             slidesPerView: 2
@@ -896,7 +896,7 @@ let productswiper = new Swiper(".productSwiper", {
     slidesPerGroup: 1, // ek bar me ek slide move ho
     spaceBetween: 20,
     loop: true,
-      pauseOnMouseEnter: true ,
+    pauseOnMouseEnter: true,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -1007,7 +1007,7 @@ $(document).on("click", ".btn-group a, .sercviceinsurance button, .tp-ab-button-
     // Put exam name inside modal heading
     $("#hExamName").text(examName);
 
-   
+
 });
 
 
@@ -1127,7 +1127,7 @@ fetch('/footer.html')
 
 
 // Header load karo
-$("#header").load("/header.html", function() {
+$("#header").load("/header.html", function () {
 
     // Meanmenu duplicate fix
     $(".mean-bar").remove();
@@ -1141,13 +1141,13 @@ $("#header").load("/header.html", function() {
     });
 
     // Offcanvas open
-    $(document).on("click", ".tp-menu-bar", function() {
+    $(document).on("click", ".tp-menu-bar", function () {
         $(".tpoffcanvas").addClass("opened");
         $(".body-overlay").addClass("opened");
     });
 
     // Offcanvas close
-    $(document).on("click", ".close-btn, .body-overlay", function() {
+    $(document).on("click", ".close-btn, .body-overlay", function () {
         $(".tpoffcanvas").removeClass("opened");
         $(".body-overlay").removeClass("opened");
     });
@@ -1165,34 +1165,38 @@ fetch('/footer.html')
 
 
 
-     // Detect current page number
-  let path = window.location.pathname;
-  let match = path.match(/blog\/(\d+)\.html$/);
-  let currentPage = match ? parseInt(match[1]) : 1; // Default = 1 if blog.html
+// Detect current page number
+let path = window.location.pathname;
+let match = path.match(/blog\/(\d+)\.html$/);
+let currentPage = match ? parseInt(match[1]) : 1; // Default = 1 if blog.html
 
-  // Total number of pages
-  const totalPages = 3;
+// Total number of pages
+const totalPages = 3;
 
-  // Elements
-  const prev = document.getElementById('prevPage');
-  const next = document.getElementById('nextPage');
+// Elements
+const prev = document.getElementById('prevPage');
+const next = document.getElementById('nextPage');
 
-  // Set Previous Page
-  if (currentPage > 1) {
+// Set Previous Page
+if (currentPage > 1) {
     prev.href = currentPage === 2 ? "../blog.html" : `../blog/${currentPage - 1}.html`;
-  } else {
+} else {
     prev.classList.add("disabled");
     prev.href = "#";
-  }
+}
 
-  // Set Next Page
-  if (currentPage < totalPages) {
+// Set Next Page
+if (currentPage < totalPages) {
     next.href = currentPage === 1 ? "blog/2.html" : `../blog/${currentPage + 1}.html`;
-  } else {
+} else {
     next.classList.add("disabled");
     next.href = "#";
-  }
+}
 
 
 
-      
+
+
+
+
+
