@@ -135,14 +135,14 @@
     align-items: flex-start;
     gap: 16px;
 
-    color: rgba(255, 255, 255, 0.92);
+    /* color: rgba(255, 255, 255, 0.92); */
 
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
 
     line-height: 1.9;
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .feature-list li:last-child {
