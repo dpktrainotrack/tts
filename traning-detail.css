@@ -2512,3 +2512,14 @@ button.nav-link.active {
         font-size: 1.8rem;
     }
 }
+
+@media screen and (min-width:992px) {
+    .nav-pills .nav-link {
+        width: 100%;
+    }
+
+    li.nav-item {
+        flex: 1;
+    }
+
+}
