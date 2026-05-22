@@ -1,0 +1,424 @@
+      <!-- ======= Course Curriculum =======-->
+                            <div class="course-curriculum-section section-space-top" id="training-curriculum">
+                                <div class="cc-header mb-4">
+                                    <h2 class="section-heading mb-2">Course Curriculum</h2>
+                                    <p class="cc-subtext text-muted">A comprehensive, structured learning path designed by industry experts to take you from beginner to certified professional.</p>
+                                    <div class="cc-stats-badges d-flex flex-wrap gap-3 mt-3">
+                                        <span class="cc-stats-badge"><i class="fa-regular fa-clock me-2"></i><strong>30+</strong> Hours of Learning</span>
+                                        <span class="cc-stats-badge"><i class="fa-solid fa-layer-group me-2"></i><strong>8</strong> Modules</span>
+                                        <span class="cc-stats-badge"><i class="fa-solid fa-laptop-code me-2"></i><strong>12+</strong> Hands-on Labs</span>
+                                    </div>
+                                </div>
+
+                                <div class="cc-accordion" id="curriculumAccordion">
+                                    <!-- Module 1 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn" data-bs-toggle="collapse" data-bs-target="#ccModule1" aria-expanded="true">
+                                            <div class="cc-num-box">01</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 1</span>
+                                                <h4 class="cc-mod-title">Cloud Computing & AWS Fundamentals</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 5 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 4 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule1" class="collapse show" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Get started with the fundamentals of Cloud Computing, understand the global infrastructure of AWS, and set up your AWS Free Tier account.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Introduction to Cloud Computing & AWS Services</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Global Infrastructure: Regions & Availability Zones</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Understanding AWS Shared Responsibility Model</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Management Console, CLI & CloudShell Walkthrough</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Creating & Configuring your AWS Free Tier Account</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 2 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule2" aria-expanded="false">
+                                            <div class="cc-num-box">02</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 2</span>
+                                                <h4 class="cc-mod-title">IAM & AWS Security Management</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 6 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 4 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule2" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Master AWS Identity and Access Management (IAM). Learn to manage users, groups, roles, and write fine-grained policies to secure your cloud resources.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Identity & Access Management (IAM) Core Concepts</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Creating Users, Groups, Roles and Custom Policies</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS MFA, Account Aliases, and Password Policies</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Deep Dive: IAM Policy Structure & JSON Syntax</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Securing an S3 Bucket using custom IAM User Roles</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 3 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule3" aria-expanded="false">
+                                            <div class="cc-num-box">03</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 3</span>
+                                                <h4 class="cc-mod-title">Amazon EC2 & AWS Compute Services</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 7 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 5 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule3" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Dive deep into AWS compute solutions. Deploy virtual servers with EC2, configure load balancing, scale automatically, and get an intro to Serverless with AWS Lambda.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Amazon EC2 Concepts, Instance Types & Purchasing Options</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Deploying EC2 Instances (Linux & Windows) with SSH/RDP</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">EC2 User Data, Security Groups, and Elastic IP Addresses</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Elastic Load Balancing (ALB, NLB, GLB) & Target Groups</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Auto Scaling Groups & Scaling Policies</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Serverless Computing: Introduction to AWS Lambda & API Gateway</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Deploying a Scalable Web Application with ALB and Auto Scaling</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 4 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule4" aria-expanded="false">
+                                            <div class="cc-num-box">04</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 4</span>
+                                                <h4 class="cc-mod-title">AWS Storage Services & S3 Deep Dive</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 6 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 4 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule4" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Explore reliable cloud storage options. Master Amazon S3 storage classes, object locking, replication, and compare Block vs. File storage (EBS and EFS).</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Amazon S3 Architecture: Buckets, Keys, and Metadata</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">S3 Storage Classes: Standard, Intelligent-Tiering, Glacier Deep Archive</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">S3 Lifecycle Policies, Object Versioning, & Cross-Region Replication</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Block Storage vs File Storage: EBS Volumes, Snapshots & EFS Shares</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Storage Gateway, DataSync, and AWS Snow Family Overview</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Creating a Highly Secure Static Website on Amazon S3</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 5 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule5" aria-expanded="false">
+                                            <div class="cc-num-box">05</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 5</span>
+                                                <h4 class="cc-mod-title">VPC & Cloud Networking Architecture</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 6 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 5 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule5" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Design custom network topologies in AWS. Learn about Virtual Private Clouds (VPC), Subnets, Route Tables, Internet Gateways, NAT Gateways, Security Groups, and NACLs.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Amazon VPC Core Concepts: Subnets, IP Ranges, & CIDR Notation</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Designing Public vs. Private Subnets and Route Tables</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Internet Gateways, NAT Gateways, & VPC Endpoints</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Network Security: Statefully Security Groups vs. Stateless NACLs</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">VPC Peering, AWS Transit Gateway, & AWS VPN Connections</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Building a Custom Multi-Tier VPC Network from Scratch</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 6 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule6" aria-expanded="false">
+                                            <div class="cc-num-box">06</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 6</span>
+                                                <h4 class="cc-mod-title">AWS Database Services (RDS & DynamoDB)</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 5 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 3 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule6" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Compare Relational vs. Non-Relational databases on AWS. Learn to deploy, scale, and back up Amazon RDS, DynamoDB, Amazon Aurora, and ElastiCache.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Database Portfolio: SQL vs. NoSQL Cloud Choices</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Amazon RDS Engines: MySQL, Postgres, Multi-AZ High Availability</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Amazon Aurora Architecture & Read Replicas</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">NoSQL Powerhouse: Amazon DynamoDB Key-Value Databases</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Launching a High-Availability Multi-AZ Amazon RDS Database Instance</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 7 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule7" aria-expanded="false">
+                                            <div class="cc-num-box">07</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 7</span>
+                                                <h4 class="cc-mod-title">Cloud Monitoring, Auditing & Cost Control</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 5 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 3 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule7" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Discover how to monitor resources using Amazon CloudWatch, audit user actions via AWS CloudTrail, optimize your AWS costs, and follow the AWS Well-Architected Framework.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Amazon CloudWatch: Metrics, Logs, Dashboards, & Custom Alarms</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS CloudTrail: Auditing User Access & System Operations</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Cost Explorer, Budgets, and Trusted Advisor</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">The AWS Well-Architected Framework: 6 Pillars of Excellence</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title"><strong>Hands-on Lab:</strong> Setting Up billing alarms and CloudWatch Custom Metrics</span>
+                                                        <span class="cc-lesson-type cc-type-lab ms-auto">Lab</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Module 8 -->
+                                    <div class="cc-item">
+                                        <div class="cc-header-btn collapsed" data-bs-toggle="collapse" data-bs-target="#ccModule8" aria-expanded="false">
+                                            <div class="cc-num-box">08</div>
+                                            <div class="cc-title-area">
+                                                <span class="cc-mod-label">MODULE 8</span>
+                                                <h4 class="cc-mod-title">Exam Preparation & Mock Exams</h4>
+                                            </div>
+                                            <div class="cc-meta-area ms-auto d-none d-sm-flex align-items-center gap-3 me-3">
+                                                <span class="cc-meta-item"><i class="fa-regular fa-circle-play me-1"></i> 4 Lessons</span>
+                                                <span class="cc-meta-item"><i class="fa-regular fa-clock me-1"></i> 4 Hrs</span>
+                                            </div>
+                                            <div class="cc-arrow-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                                        </div>
+                                        <div id="ccModule8" class="collapse" data-bs-parent="#curriculumAccordion">
+                                            <div class="cc-body-content">
+                                                <div class="cc-desc mb-3">Prepare for the official AWS certification exam with exam blueprint reviews, practice questions, strategy sessions, and resume-building tips.</div>
+                                                <ul class="cc-lessons-list">
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Certification Blueprint & Exam Pattern Strategy</span>
+                                                        <span class="cc-lesson-type ms-auto">Video</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Practice Test Drill: Breaking Down AWS Exam Questions</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">AWS Voucher Application Process & Registrations</span>
+                                                        <span class="cc-lesson-type ms-auto">Demo</span>
+                                                    </li>
+                                                    <li>
+                                                        <div class="cc-lesson-dot"></div>
+                                                        <span class="cc-lesson-title">Post-Certification Resume Review & Placement Support</span>
+                                                        <span class="cc-lesson-type ms-auto">Theory</span>
+                                                    </li>
+                                                </ul>
+                                                <!-- Key Features Callout Inside the Curriculum Section -->
+                                                <div class="cc-key-features mt-4">
+                                                    <h5 class="cc-kf-title"><i class="fa-solid fa-circle-check me-2 text-warning"></i>Certification Key Features</h5>
+                                                    <div class="cc-kf-grid">
+                                                        <div class="cc-kf-item"><i class="fa-solid fa-gift"></i> AWS Kit &amp; Exam Voucher</div>
+                                                        <div class="cc-kf-item"><i class="fa-solid fa-headset"></i> 24x7 Course Assistance</div>
+                                                        <div class="cc-kf-item"><i class="fa-solid fa-graduation-cap"></i> AWS Accredited Instructors</div>
+                                                        <div class="cc-kf-item"><i class="fa-solid fa-diagram-project"></i> Real-time Case Projects</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>

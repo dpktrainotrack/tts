@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link rel="stylesheet" href="traning-brand.css">
+    <link rel="stylesheet" href="traning-detail.css">
     <!-- OWL CAROUSEL CSS -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -154,6 +154,152 @@
 
         .traning-info-wrapper {
             gap: 30px;
+        }
+    </style>
+    <style>
+        /* ===========================
+       QUICK INFO STRIP
+    =========================== */
+        .trail-info-strip {
+            background: #fff;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .trail-info-strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            padding: 0 20px;
+        }
+
+        .trail-strip-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 22px 30px;
+            transition: background 0.3s ease;
+        }
+
+        .trail-strip-item:hover {
+            background: var(--trail-surface);
+        }
+
+        .trail-strip-item>i {
+            font-size: 22px;
+            color: var(--trail-primary);
+            width: 36px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .strip-label {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--trail-text-muted);
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .strip-value {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--trail-secondary);
+            line-height: 1;
+        }
+
+        .trail-strip-divider {
+            width: 1px;
+            height: 40px;
+            background: #E2E8F0;
+            flex-shrink: 0;
+        }
+
+        /* ===========================
+       COURSE OVERVIEW
+    =========================== */
+        .trail-overview {
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        .trail-overview-text {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .trail-overview-highlights {
+            margin-top: 32px;
+        }
+
+        .trail-highlights-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--trail-secondary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .trail-highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .trail-highlight-item i {
+            color: var(--trail-primary);
+            font-size: 15px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .trail-requirements {
+            background: var(--trail-surface);
+            border-radius: var(--trail-radius);
+            padding: 24px 28px;
+            border-left: 4px solid var(--trail-primary);
+        }
+
+        .trail-req-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .trail-req-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 16px;
+            color: #475569;
+            padding: 8px 0;
+            border-bottom: 1px dashed #E2E8F0;
+        }
+
+        .trail-req-list li:last-child {
+            border-bottom: none;
+        }
+
+        .trail-req-list li i {
+            color: var(--trail-primary);
+            font-size: 12px;
+            margin-top: 4px;
+            flex-shrink: 0;
         }
     </style>
     <!-- Google Tag Manager -->
@@ -324,6 +470,38 @@
             </div>
         </section>
 
+        <section class="trail-info-strip ">
+            <div class="container">
+                <div class="trail-info-strip-inner">
+                    <div class="trail-strip-item">
+                        <!-- <i class="fa fa-clock"></i> -->
+                        <div>
+                            <!-- <span class="strip-label">Duration</span> -->
+                            <span class="strip-value"><a href="#training-overview">Overview</a></span>
+                        </div>
+                    </div>
+                    <div class="trail-strip-divider"></div>
+                    <div class="trail-strip-item">
+                        <span class="strip-value"><a href="#training-curriculum">Training and Courses</a></span>
+                    </div>
+                    <div class="trail-strip-divider"></div>
+
+
+                    <div class="trail-strip-item">
+                        <span class="strip-value"><a href="#testimonials">
+                                Reviews
+                            </a></span>
+                    </div>
+                    <div class="trail-strip-divider"></div>
+                    <div class="trail-strip-item">
+                        <div>
+                            <span class="strip-value"><a href="#trainee-faq">FAQs</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CONTENT-AREA -->
         <section class="overview_section inner-space-top inner-space-bottom">
             <div class="container">
@@ -331,7 +509,7 @@
                     <div class="col-lg-8">
                         <div class="content-wraper">
                             <div class="overview_course" style="margin-bottom: 50px;">
-                                <h2 class="section-heading">Overview</h2>
+                                <h2 class="section-heading mb-3">AWS Course Overview</h2>
                                 <div>
                                     <p>This AWS course helps you build strong cloud skills with practical
                                         implementation, live
@@ -342,23 +520,12 @@
                                         cloud skills with practical implementation, live projects, mock interviews, and
                                         placement assistance. Suitable for students, developers, system administrators,
                                         and IT
-                                        professionals.This AWS course helps you build strong cloud skills with practical
-                                        implementation, live projects, mock interviews, and placement assistance.
-                                        Suitable for
-                                        students, developers, system administrators, and IT professionals.</p>
+                                        professionals..</p>
                                 </div>
-                                <h3 class="" style="font-size: 22px; font-weight: 700;">What you will learn
-                                </h3>
-                                <ul class="course-details-list"
-                                    style="font-size: 16px; line-height: 1.9; color:rgb(90, 90, 90)">
-                                    <li>Fundamentals of cloud computing and AWS</li>
-                                    <li>Core AWS services (EC2, S3, VPC, IAM, RDS)</li>
-                                    <li>Cloud security, monitoring, and cost management</li>
-                                    <li>Best practices for building scalable and reliable solutions</li>
-                                </ul>
+
                             </div>
 
-
+                            <!-- =======Certification and Courses======== -->
                             <div class=" pt-5">
                                 <div class="d-flex justify-content-between">
 
@@ -489,83 +656,227 @@
 
 
 
-                            <!-- WHY CHOOSE US SECTION -->
-                            <div class="traning-feature section-space-top">
+
+                            <!-- =========Career-Benifits=========== -->
+                            <div class="career-benefits-section section-space-top" id="career-benefits">
                                 <div>
                                     <h2 class="section-heading">
-                                        Training Features
+                                        Career Benefits
                                     </h2>
+                                    <p class="cb-subtitle">Unlock high-growth career opportunities with AWS
+                                        certification</p>
                                 </div>
-                                <div class="feature-wrapper">
+                                <!-- career-benefit-tabs- -->
+                                <div class="career-tabs-wrapper mb-4">
 
+                                    <ul class="nav nav-pills justify-content-center gap-2 career-tabs-list"
+                                        id="careerTabs" role="tablist">
 
-                                    <div class="feature-item">
-                                        <div class="feature-icon">
-                                            <i class="fa-solid fa-video"></i>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="designation-tab" data-bs-toggle="pill"
+                                                data-bs-target="#designation" type="button" role="tab">
+                                                <i class="fa-solid fa-user-tie me-2"></i>
+                                                Designation & Roles
+                                            </button>
+                                        </li>
+
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="growth-tab" data-bs-toggle="pill"
+                                                data-bs-target="#growth" type="button" role="tab">
+                                                <i class="fa-solid fa-chart-line me-2"></i>
+                                                Annual Growth
+                                            </button>
+                                        </li>
+
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="companies-tab" data-bs-toggle="pill"
+                                                data-bs-target="#companies" type="button" role="tab">
+                                                <i class="fa-solid fa-building me-2"></i>
+                                                Hiring Companies
+                                            </button>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="tab-content" id="careerTabsContent">
+                                    <!-- Designation & Roles -->
+                                    <div class="tab-pane fade show active" id="designation" role="tabpanel">
+
+                                        <!-- Designation Section -->
+                                        <div class="cb-designation-block">
+                                            <h3 class="cb-block-title">
+                                                <i class="fa-solid fa-id-badge"></i> Designation &amp; Roles
+                                            </h3>
+                                            <div class="cb-designation-grid">
+                                                <div class="cb-designation-card">
+                                                    <div class="cb-desig-header">
+                                                        <i class="fa-solid fa-cloud"></i>
+                                                        <span class="cb-desig-tag">Popular</span>
+                                                    </div>
+                                                    <h5>Cloud Solutions Architect</h5>
+                                                    <span class="cb-salary">₹12L – ₹30L / yr</span>
+                                                </div>
+                                                <div class="cb-designation-card">
+                                                    <div class="cb-desig-header">
+                                                        <i class="fa-solid fa-code-branch"></i>
+                                                    </div>
+                                                    <h5>DevOps Engineer</h5>
+                                                    <span class="cb-salary">₹10L – ₹25L / yr</span>
+                                                </div>
+                                                <div class="cb-designation-card">
+                                                    <div class="cb-desig-header">
+                                                        <i class="fa-solid fa-shield-halved"></i>
+                                                    </div>
+                                                    <h5>Cloud Security Engineer</h5>
+                                                    <span class="cb-salary">₹14L – ₹35L / yr</span>
+                                                </div>
+                                                <div class="cb-designation-card">
+                                                    <div class="cb-desig-header">
+                                                        <i class="fa-solid fa-database"></i>
+                                                    </div>
+                                                    <h5>Data Engineer (AWS)</h5>
+                                                    <span class="cb-salary">₹11L – ₹28L / yr</span>
+                                                </div>
+                                                <div class="cb-designation-card">
+                                                    <div class="cb-desig-header">
+                                                        <i class="fa-solid fa-server"></i>
+                                                    </div>
+                                                    <h5>SysOps Administrator</h5>
+                                                    <span class="cb-salary">₹8L – ₹20L / yr</span>
+                                                </div>
+                                                <div class="cb-designation-card">
+                                                    <div class="cb-desig-header">
+                                                        <i class="fa-solid fa-network-wired"></i>
+                                                    </div>
+                                                    <h5>Cloud Network Specialist</h5>
+                                                    <span class="cb-salary">₹10L – ₹24L / yr</span>
+                                                </div>
+                                            </div>
                                         </div>
-
-                                        <div class="feature-content">
-                                            <h4>Live Interactive Classes</h4>
-                                            <p>
-                                                Attend expert-led live online sessions with real-time
-                                                discussions and Q&A support.
-                                            </p>
-                                        </div>
-
 
                                     </div>
+                                    <!-- Annual Growth -->
+                                    <div class="tab-pane fade" id="growth" role="tabpanel">
 
-                                    <div class="feature-item">
-                                        <div class="feature-icon">
-                                            <i class="fa-solid fa-ticket"></i>
+                                        <!-- Annual Growth Section -->
+                                        <div class="cb-growth-block">
+                                            <h3 class="cb-block-title">
+                                                <i class="fa-solid fa-arrow-trend-up"></i> Annual Growth
+                                            </h3>
+                                            <div class="cb-growth-cards">
+                                                <div class="cb-growth-card">
+                                                    <div class="cb-growth-visual">
+                                                        <div class="cb-growth-circle" data-percent="32">
+                                                            <svg viewBox="0 0 100 100">
+                                                                <circle class="cb-circle-bg" cx="50" cy="50" r="42">
+                                                                </circle>
+                                                                <circle class="cb-circle-fill" cx="50" cy="50" r="42"
+                                                                    stroke-dasharray="263.89"
+                                                                    stroke-dashoffset="179.45">
+                                                                </circle>
+                                                            </svg>
+                                                            <span class="cb-percent">32%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cb-growth-info">
+                                                        <h5>Cloud Job Growth</h5>
+                                                        <p>Year-over-year increase in AWS cloud job postings globally
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="cb-growth-card">
+                                                    <div class="cb-growth-visual">
+                                                        <div class="cb-growth-circle" data-percent="40">
+                                                            <svg viewBox="0 0 100 100">
+                                                                <circle class="cb-circle-bg" cx="50" cy="50" r="42">
+                                                                </circle>
+                                                                <circle class="cb-circle-fill" cx="50" cy="50" r="42"
+                                                                    stroke-dasharray="263.89"
+                                                                    stroke-dashoffset="158.33">
+                                                                </circle>
+                                                            </svg>
+                                                            <span class="cb-percent">40%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cb-growth-info">
+                                                        <h5>Salary Hike</h5>
+                                                        <p>Average salary increase after obtaining AWS certification</p>
+                                                    </div>
+                                                </div>
+                                                <div class="cb-growth-card">
+                                                    <div class="cb-growth-visual">
+                                                        <div class="cb-growth-circle" data-percent="95">
+                                                            <svg viewBox="0 0 100 100">
+                                                                <circle class="cb-circle-bg" cx="50" cy="50" r="42">
+                                                                </circle>
+                                                                <circle class="cb-circle-fill" cx="50" cy="50" r="42"
+                                                                    stroke-dasharray="263.89" stroke-dashoffset="13.19">
+                                                                </circle>
+                                                            </svg>
+                                                            <span class="cb-percent">95%</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cb-growth-info">
+                                                        <h5>Placement Rate</h5>
+                                                        <p>Our trainees successfully placed in top companies within 3
+                                                            months
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-
-                                        <div class="feature-content">
-                                            <h4>Exam Voucher Assistance</h4>
-                                            <p>
-                                                Guidance for exam registration, scheduling, and certification
-                                                voucher support.
-                                            </p>
-                                        </div>
-
 
                                     </div>
-
-                                    <div class="feature-item">
-                                        <div class="feature-icon">
-                                            <i class="fa-solid fa-headset"></i>
+                                    <!-- Hiring Companies -->
+                                    <div class="tab-pane fade" id="companies" role="tabpanel">
+                                        <div class="cb-hiring-block">
+                                            <h3 class="cb-block-title">
+                                                <i class="fa-solid fa-building"></i> Top Hiring Companies
+                                            </h3>
+                                            <p class="cb-hiring-desc">AWS certified professionals are actively recruited
+                                                by
+                                                leading global organizations</p>
+                                            <div class="cb-hiring-grid">
+                                                <div class="cb-company-card">
+                                                    <img src="assets/img/tranining-brand/HiringCompanies/amazon.png"
+                                                        alt="Amazon">
+                                                    <span>Amazon</span>
+                                                </div>
+                                                <div class="cb-company-card">
+                                                    <img src="assets/img/tranining-brand/HiringCompanies/microsoft.png"
+                                                        alt="Microsoft">
+                                                    <span>Microsoft</span>
+                                                </div>
+                                                <div class="cb-company-card">
+                                                    <img src="assets/img/tranining-brand/HiringCompanies/google.png"
+                                                        alt="Google">
+                                                    <span>Google</span>
+                                                </div>
+                                                <div class="cb-company-card">
+                                                    <img src="assets/img/tranining-brand/HiringCompanies/infosys.png"
+                                                        alt="Infosys">
+                                                    <span>Infosys</span>
+                                                </div>
+                                                <div class="cb-company-card">
+                                                    <img src="assets/img/tranining-brand/HiringCompanies/tcs.png"
+                                                        alt="TCS">
+                                                    <span>TCS</span>
+                                                </div>
+                                                <div class="cb-company-card">
+                                                    <img src="assets/img/tranining-brand/HiringCompanies/wipro.png"
+                                                        alt="Wipro">
+                                                    <span>Wipro</span>
+                                                </div>
+                                            </div>
                                         </div>
-
-                                        <div class="feature-content">
-                                            <h4>Mentor Support</h4>
-                                            <p>
-                                                Get direct guidance from trainers and mentors throughout your
-                                                learning journey.
-                                            </p>
-                                        </div>
-
-
                                     </div>
-                                    <div class="feature-item">
-                                        <div class="feature-icon">
-                                            <i class="fa-solid fa-briefcase"></i>
-                                        </div>
-
-                                        <div class="feature-content">
-                                            <h4>Career Guidance</h4>
-                                            <p>
-                                                Receive career counseling, interview preparation, and
-                                                certification roadmap support.
-                                            </p>
-                                        </div>
 
 
-                                    </div>
                                 </div>
                             </div>
-                            <!-- =========================================================
-     TESTIMONIALS SECTION
-========================================================= -->
+
+                            <!-- ========== TESTIMONIALS SECTION === -->
 
                             <section class="section-space-top ">
                                 <div class="">
