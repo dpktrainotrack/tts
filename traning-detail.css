@@ -2041,16 +2041,474 @@ section .section-heading {
 }
 
 .career-tabs-list li button {
-    background: #efefef !important;
+    background: #fffffb !important;
     color: #4c4c4c;
+    border: 1px solid var(--secondary-color) !important;
+
+}
+
+
+button.nav-link.active {
+    background: var(--secondary-color) !important;
+    color: #ffffff !important;
+    border-bottom: 3px solid #646464;
+    transition: var(--transition);
 }
 
 .career-tabs-list li button:hover {
-    background: var(--gradient-blue) !important;
+    background: var(--secondary-color) !important;
     color: #ffffff !important;
 }
 
-button.nav-link.active {
-    background: var(--gradient-blue) !important;
-    color: #ffffff !important;
+.career-tabs-wrapper {
+    padding: 20px 15px;
+    background-color: #fdf4dcd3;
+    border-radius: 12px;
+}
+
+/* =========================================================
+   TRAINING OPTIONS SECTION — PREMIUM REDESIGN
+   ========================================================= */
+
+.training-options-section {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* Badge and Header */
+.options-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 122, 24, 0.07);
+    color: var(--secondary-color);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 122, 24, 0.15);
+    animation: pulse-glowing 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glowing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 122, 24, 0.15);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 122, 24, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 122, 24, 0);
+    }
+}
+
+.training-options-section .section-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--dark-text);
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.training-options-section .section-heading span {
+    background: var(--gradient-btn);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.options-subtitle {
+    font-size: 1.05rem;
+    color: var(--gray-text);
+    max-width: 600px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+}
+
+/* Card Wrapper Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Base Card Style */
+.option-card {
+    background: var(--white);
+    border-radius: 28px;
+    padding: 40px 30px;
+    position: relative;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.option-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(255, 122, 24, 0.08);
+}
+
+/* Featured Card (Bootcamp) */
+.option-card.featured {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--white), var(--white)) padding-box,
+        linear-gradient(135deg, var(--secondary-color), var(--primary-color)) border-box;
+    box-shadow: 0 15px 35px rgba(255, 122, 24, 0.05);
+}
+
+.option-card.featured:hover {
+    box-shadow: 0 30px 60px rgba(255, 122, 24, 0.15);
+}
+
+/* Floating Badge */
+.badge-popular {
+    position: absolute;
+    top: -15px;
+    right: 35px;
+    background: var(--gradient-btn);
+    color: var(--white);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 8px 20px rgba(255, 122, 24, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 3;
+}
+
+.badge-popular i {
+    animation: flame-flicker 1.5s infinite alternate;
+}
+
+@keyframes flame-flicker {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+/* Header Elements */
+.option-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 24px;
+}
+
+.option-icon-box {
+    width: 85px;
+    height: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.option-card.featured .option-icon-box {
+    background: var(--gradient-btn);
+    box-shadow: 0 10px 20px rgba(255, 122, 24, 0.2);
+}
+
+.option-card.corporate .option-icon-box {
+    background: linear-gradient(135deg, #2b78e4, #1b4b9b);
+    box-shadow: 0 10px 20px rgba(43, 120, 228, 0.2);
+}
+
+.option-card:hover .option-icon-box {
+    transform: scale(1.08) rotate(-5deg);
+}
+
+.option-header-text h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--dark-text);
+    margin-bottom: 6px;
+}
+
+.option-header-text p {
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Body Content */
+.option-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.option-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.option-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.95rem;
+    color: var(--dark-text);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.option-features li i {
+    font-size: 18px;
+    margin-top: 2px;
+    transition: var(--transition);
+}
+
+.option-card.featured .option-features li i {
+    color: var(--secondary-color);
+}
+
+.option-card.corporate .option-features li i {
+    color: #2b78e4;
+}
+
+.option-card:hover .option-features li i {
+    transform: scale(1.15);
+}
+
+/* Batches Block */
+.batches-container {
+    background: rgba(255, 122, 24, 0.03);
+    border: 1px solid rgba(255, 122, 24, 0.08);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 30px;
+}
+
+.batches-title {
+    font-size: 0.8rem;
+    font-weight: 750;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.batches-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.batch-tag {
+    font-size: 0.85rem;
+    font-weight: 650;
+    color: var(--dark-text);
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 6px 14px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.batch-tag i {
+    color: var(--secondary-color);
+    font-size: 12px;
+}
+
+.batch-tag:hover {
+    border-color: var(--secondary-color);
+    background: rgba(255, 122, 24, 0.02);
+    transform: translateY(-2px);
+}
+
+/* Pricing Container */
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 25px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
+}
+
+.price-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.discount-badge {
+    background: #ff3d00;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+    width: fit-content;
+    box-shadow: 0 4px 10px rgba(255, 61, 0, 0.2);
+}
+
+.actual-price {
+    font-size: 2.1rem;
+    font-weight: 850;
+    color: var(--dark-text);
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+}
+
+.original-price {
+    font-size: 1.05rem;
+    text-decoration: line-through;
+    color: var(--gray-text);
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 16px;
+    font-size: 1.05rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-premium.enroll {
+    background: var(--gradient-btn);
+    color: var(--white);
+    box-shadow: 0 10px 25px rgba(255, 122, 24, 0.25);
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-premium.enroll::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(30deg);
+    transition: none;
+}
+
+.btn-premium.enroll:hover::after {
+    left: 140%;
+    transition: all 0.7s ease-in-out;
+}
+
+.btn-premium.enroll:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 122, 24, 0.4);
+    color: var(--white);
+}
+
+.btn-premium.consult {
+    background: transparent;
+    color: #2b78e4;
+    border: 2px solid #2b78e4;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-premium.consult:hover {
+    background: linear-gradient(135deg, #2b78e4, #1b4b9b);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(43, 120, 228, 0.25);
+}
+
+.btn-premium i {
+    transition: var(--transition);
+}
+
+.btn-premium:hover i {
+    transform: translateX(4px);
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 580px;
+    }
+
+    .option-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .training-options-section {
+        padding: 50px 0;
+    }
+
+    .option-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .option-icon-box {
+        width: 54px;
+        height: 54px;
+        font-size: 20px;
+        border-radius: 14px;
+    }
+
+    .price-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .btn-premium.enroll {
+        width: 100%;
+    }
+
+    .actual-price {
+        font-size: 1.8rem;
+    }
 }
