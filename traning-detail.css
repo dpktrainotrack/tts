@@ -816,9 +816,9 @@ section .section-heading {
     }
 }
 
-.traning-fancy-card {
+/* .traning-fancy-card {
     margin-top: 20px;
-}
+} */
 
 @media screen and (min-width: 992px) {
     .sticky-sidebar {
