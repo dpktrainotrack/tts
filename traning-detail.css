@@ -1358,14 +1358,39 @@ section .section-heading {
 
 }
 
-.certficate-grid-style {
+.fancy-card-wraper {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
     width: 100%;
     justify-content: center;
     align-items: center;
+
 }
+
+
+
+.certficate-row-style {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.certficate-row-style .traning-fancy-card {
+    width: 100%;
+}
+
+/* .certficate-grid-style {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+} */
 
 
 /* =========================================================
@@ -2064,7 +2089,10 @@ button.nav-link.active {
     padding: 20px 15px;
     background-color: #fdf4dcd3;
     border-radius: 12px;
+    /* max-width: 800px;
+    margin: 0 auto; */
 }
+
 
 /* =========================================================
    TRAINING OPTIONS SECTION — PREMIUM REDESIGN
